@@ -45,6 +45,6 @@ def blink():
         disp.display()
         print nframes
         nframes += 1
-        time.sleep(0.1)
+        time.sleep(0.05)
 
 blink()
