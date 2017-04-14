@@ -34,10 +34,10 @@ disp.display()
 im = Image.open("blink.gif")
 nframes = 0
 while im:
-	disp.image(im)
-	disp.display()
-    nframes += 1
+    disp.image(im)
+    disp.display()
+    nframes+=1
     try:
-        im.seek( nframes )
+        im.seek(nframes)
     except EOFError:
-        break;
+        break
