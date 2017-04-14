@@ -37,6 +37,7 @@ while im:
     disp.image(im)
     disp.display()
     nframes+=1
+    print nframes
     try:
         im.seek(nframes)
     except EOFError:

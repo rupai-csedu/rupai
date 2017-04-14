@@ -39,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/Adafruit_Python_SSD1306/emotion/emotion.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1015">
-              <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+              <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -417,7 +417,7 @@
     <entry file="file://$PROJECT_DIR$/Adafruit_Python_SSD1306/emotion/emotion.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1015">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
