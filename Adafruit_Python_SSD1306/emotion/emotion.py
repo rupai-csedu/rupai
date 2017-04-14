@@ -31,7 +31,7 @@ height = disp.height
 disp.clear()
 disp.display()
 
-im = Image.open("blink.gif")
+im = Image.open("blink.gif").convert('1')
 nframes = 0
 while im:
     disp.image(im)

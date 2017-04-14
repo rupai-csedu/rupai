@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f11e8b6-3688-492c-b929-33d80f50e4fa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RoboPiVPL.iml" afterPath="$PROJECT_DIR$/.idea/RoboPiVPL.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adafruit_Python_SSD1306/emotion/emotion.py" afterPath="$PROJECT_DIR$/Adafruit_Python_SSD1306/emotion/emotion.py" />
     </list>
     <ignored path="untitled.iws" />
@@ -41,8 +38,8 @@
       <file leaf-file-name="emotion.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Adafruit_Python_SSD1306/emotion/emotion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1147">
-              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+            <state relative-caret-position="1015">
+              <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -419,8 +416,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Adafruit_Python_SSD1306/emotion/emotion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1147">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        <state relative-caret-position="1015">
+          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
