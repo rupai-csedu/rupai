@@ -1,0 +1,182 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    background-color: #fff;
+    overflow: hidden;
+}
+table {
+    height: 100%;
+    width: 100%;
+}
+#blocklyArea {
+    height: 90%;
+}
+
+#sts-bar > a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.sts-none {
+    height: 5%;
+    background-color: #ecb200;
+    color: #fff;
+    font-size: 12px;
+    text-align: left;
+    padding-left: 15px;
+    line-height: 20px;
+}
+
+.sts-success{
+    height: 5%;
+    color: #fff;
+    font-size: 12px;
+    text-align: left;
+    padding-left: 15px;
+    line-height: 20px;
+    background-color: mediumseagreen;
+}
+
+.sts-failure{
+    height: 5%;
+    color: #fff;
+    font-size: 12px;
+    text-align: left;
+    padding-left: 15px;
+    line-height: 20px;
+    background-color: indianred;
+}
+
+.bottom-bar {
+    height: 5%;
+    background-color: #00254e;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.compile_success{
+    z-index: 100;
+    width:200px;
+    height:20px;
+    height: auto;
+    position:absolute;
+    left:50%;
+    margin-left:-100px;
+    bottom:100px;
+    color: #F0F0F0;
+    font-size: 14px;
+    padding:10px;
+    text-align:center;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    background-color: mediumseagreen;
+}
+
+.compile_error{
+    z-index: 100;
+    width:200px;
+    height:20px;
+    height: auto;
+    position:absolute;
+    left:50%;
+    margin-left:-100px;
+    bottom:100px;
+    color: #F0F0F0;
+    font-size: 14px;
+    padding:10px;
+    text-align:center;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    background-color: indianred;
+}
+
+.navbar-robopi {
+    background-color: #00254e;
+    border-color: #ecb200;
+}
+.navbar-robopi .navbar-brand {
+    color: #ffffff;
+}
+.navbar-robopi .navbar-brand:hover,
+.navbar-robopi .navbar-brand:focus {
+    color: #ffffff;
+}
+.navbar-robopi .navbar-text {
+    color: #ffffff;
+}
+.navbar-robopi .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-robopi .navbar-nav > li > a:hover,
+.navbar-robopi .navbar-nav > li > a:focus {
+    color: #ffffff;
+}
+.navbar-robopi .navbar-nav > .active > a,
+.navbar-robopi .navbar-nav > .active > a:hover,
+.navbar-robopi .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: #ecb200;
+}
+.navbar-robopi .navbar-nav > .open > a,
+.navbar-robopi .navbar-nav > .open > a:hover,
+.navbar-robopi .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #ecb200;
+}
+.navbar-robopi .navbar-toggle {
+    border-color: #ecb200;
+}
+.navbar-robopi .navbar-toggle:hover,
+.navbar-robopi .navbar-toggle:focus {
+    background-color: #ecb200;
+}
+.navbar-robopi .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+.navbar-robopi .navbar-collapse,
+.navbar-robopi .navbar-form {
+    border-color: #ffffff;
+}
+.navbar-robopi .navbar-link {
+    color: #ffffff;
+}
+.navbar-robopi .navbar-link:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    .navbar-robopi .navbar-nav .open .dropdown-menu > li > a {
+        color: #ffffff;
+    }
+    .navbar-robopi .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-robopi .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #ffffff;
+    }
+    .navbar-robopi .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-robopi .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-robopi .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #ffffff;
+        background-color: #ecb200;
+    }
+}
+
+.nav > li > a:focus {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.nav > li > a:hover {
+    background-color: #001932;
+}
+
+#blocklyArea {
+    height: 95%;
+}

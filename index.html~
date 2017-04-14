@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RoboPi: CSEDU</title>
+
+    <link rel="icon"
+          type="image/png"
+          href="favicon.ico" />
+
+
+    <!------------------------------------------------------CSS-------------------------------------------------------->
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this html -->
+    <link href="robopi/css/main.css" rel="stylesheet">
+
+
+    <!-------------------------------------------------------JS-------------------------------------------------------->
+
+    <script src="dist/js/jquery-3.1.1.min.js"></script>
+	
+	<!-- Blockly core JS -->
+    <script src="blockly/blockly_compressed.js"></script>
+    <script src="blockly/python_compressed.js"></script>
+    <script src="blockly/blocks_compressed.js"></script>
+    <script src="blockly/msg/js/en.js"></script>
+    <script src="robopi/js/code_action.js"></script>
+    <script src="robopi/js/block_action.js"></script>
+    <script src="robopi/js/code_sensor.js"></script>
+    <script src="robopi/js/block_sensor.js"></script>
+    <script src="robopi/js/code_control.js"></script>
+    <script src="robopi/js/block_control.js"></script>
+    <script src="robopi/js/color.js"></script>
+    
+    <!--
+    <script src="blockly/blocks/logic.js"></script>
+    <script src="blockly/blocks/math.js"></script>
+    <script src="blockly/blocks/variables.js"></script>
+    <script src="blockly/blocks/text.js"></script>
+    <script src="blockly/blocks/loops.js"></script>
+	 -->  
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <!---------------------------------  GLOBAL DATA-------------------------------->
+    <script>
+        var ERROR_MSG = "huge error msg";
+    </script>
+
+
+</head>
+<body>
+
+<div id="toast" style='display:none'></div>
+
+
+<table>
+    <tr>
+        <td>
+            <div id="piMainHeader">
+                <!-- Fixed navbar -->
+                <nav class="navbar navbar-robopi navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="navbar-brand"> <img src="robopi/img/logo.png" width="100px"></div>
+                            <div class="navbar-brand" style="font-size: 12px">Visual Programming Editor</div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-robopi navbar-nav">
+                                <li class="active"><a href="#">Editor</a></li>
+                                <li><a href="#" data-type='about' data-toggle='modal' data-target='#myModal'>About</a></li>
+                                <li><a href="#" data-type='help' data-toggle='modal' data-target='#myModal'>Help</a></li>
+                            </ul>
+                            <ul class="nav navbar-robopi navbar-nav navbar-right">
+                                <a href="#" type="button" id="compile" onclick="compile_success()" class="btn btn-warning navbar-btn" style="margin-right: 10px; margin-left: 10px">Compile</a>
+                                <a href="#" type="button" id="run" onclick="compile_fail()" class="btn btn-success navbar-btn">Run</a>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </nav>
+
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td id="blocklyArea">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="sts-bar" class="sts-none">Status: Okay | Click on 'Help' to get started</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="bottom-bar">Copyright 2017, Robotics Lab (RoboLab), Dept. of CSE, University of Dhaka</div>
+        </td>
+    </tr>
+</table>
+
+<div id="blocklyDiv" style="position: absolute"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<xml id="toolbox" style="display: none">
+      <category name="Action" expanded="true">
+        <block type="action_go">
+        
+		    <value name="go_steps">
+		  		<shadow type="math_number">
+		    		<field name="NUM">5</field>
+		  		</shadow>
+			</value>
+		    
+        </block>
+        
+        <block type="action_go_simple"></block>
+        <block type="action_stop"></block>
+        <block type="action_turn"></block>
+        <block type="action_say">
+        	
+        	<value name="say_text">
+		  		<block type="text">
+		    		<field name="TEXT">hello</field>
+		  		</block>
+			</value>
+        
+        </block>
+        
+      </category>
+      
+      <category name="Sensor">
+        <block type="sensor_get_distance"></block>
+        <block type="sensor_is_obstacle"></block>
+        <block type="sensor_on_track"></block>
+        <block type="sensor_left_white"></block>
+        <block type="sensor_right_white"></block>
+        <block type="sensor_centre_white"></block>
+        
+        
+      </category>
+      
+      <category name="Control">
+      	<block type="controls_if"></block>
+      	<block type="controls_whileUntil"></block>
+        <block type="control_wait"></block>
+        <block type="control_wait_until"></block>
+        
+        
+      </category>
+      
+      <category name="Logic">
+      	<block type="logic_compare"></block>
+      	<block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_ternary"></block>
+        
+      </category>
+      
+      
+      <category name="Math">
+      	<block type="math_number"></block>
+      	
+      	<block type="math_arithmetic">
+    		<field name="OP">ADD</field>
+    			<value name="A">
+      				<shadow type="math_number">
+        				<field name="NUM">1</field>
+      				</shadow>
+    			</value>
+    			<value name="B">
+      				<shadow type="math_number">
+        				<field name="NUM">1</field>
+      				</shadow>
+    			</value>
+  		</block>
+      	
+		<block type="math_random_int" >
+			<value name="FROM">
+			  <shadow type="math_number">
+				<field name="NUM">1</field>
+			  </shadow>
+			</value>
+			<value name="TO">
+			  <shadow type="math_number">
+				<field name="NUM">100</field>
+			  </shadow>
+			</value>
+	  	</block>
+		    
+      </category>
+      
+      <category name="Text">
+      	<block type="text"></block>
+      	
+      </category>
+      
+      <category name="Color">
+      	<block type="color"></block>
+      	
+      </category>
+      
+      <category name="Variables" colour="330" custom="VARIABLE">
+      
+      	
+      </category>
+</xml>
+
+<script>
+    var blocklyArea = document.getElementById('blocklyArea');
+    var blocklyDiv = document.getElementById('blocklyDiv');
+    var workspace = Blockly.inject(blocklyDiv,
+            {
+            	collapse: false,
+                media: 'media/',
+                toolbox: document.getElementById('toolbox'),
+                toolboxPosition: 'start',
+                trashcan: true,
+                zoom: {
+                    controls: true,
+                    wheel: true,
+                    startScale: 1.0,
+                    maxScale: 3,
+                    minScale: 0.3,
+                    scaleSpeed: 1.2
+                }
+            });
+    var onresize = function(e) {
+        // Compute the absolute coordinates and dimensions of blocklyArea.
+        console.log(e);
+
+        var element = blocklyArea;
+        var x = 0;
+        var y = 0;
+        do {
+            x += element.offsetLeft;
+            y += element.offsetTop;
+            element = element.offsetParent;
+        } while (element);
+        // Position blocklyDiv over blocklyArea.
+        blocklyDiv.style.left = x + 'px';
+        blocklyDiv.style.top = y + 'px';
+        blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+        blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+    };
+    window.addEventListener('resize', onresize, false);
+    onresize();
+    Blockly.svgResize(workspace);
+
+
+    function compile_success() {
+        var sts = document.getElementById("sts-bar");
+        sts.setAttribute('class', '');
+        sts.setAttribute('class', 'sts-success');
+        sts.innerHTML= "Compilation Successful. Ready to run.";
+        
+        //for debugging purpose
+        showCode();
+    }
+
+
+    function compile_fail() {
+        //TODO: SET "ERROR_MSG"
+
+        var sts = document.getElementById("sts-bar");
+        sts.setAttribute('class', '');
+        sts.setAttribute('class', 'sts-failure');
+        sts.innerHTML= "Compilation Filed <a href='#' data-type='error' data-toggle='modal' data-target='#myModal'>(See errors here)</a>";
+        
+        
+        Blockly.Python.INFINITE_LOOP_TRAP = null;
+      	var codes = Blockly.Python.workspaceToCode(workspace);
+      		
+        $.post("sendcode.py",{
+        	
+      		code: codes	
+ 
+        },function(data){
+        
+        	//do something
+        });
+    }
+    
+    
+    function showCode() {
+      // Generate JavaScript code and display it.
+      Blockly.Python.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.Python.workspaceToCode(workspace);
+      alert(code);
+    }
+
+
+    $('#myModal').on('show.bs.modal', function (event) {
+        //alert("in here!!!");
+        var button = $(event.relatedTarget);// Button that triggered the modal
+        var recipient = button.attr('data-type');// Extract info from data-* attributes
+
+        var modal = $(this);
+
+        if(recipient==='error') {
+            modal.find('.modal-title').text('Error');
+            modal.find('.modal-body').text(ERROR_MSG);
+        }
+
+        else if(recipient==='about') {
+            modal.find('.modal-title').text('About');
+            modal.find('.modal-body').text(
+                    "Created with <3 in University of Dhaka"+
+                    "A simulation program will be started from the programming environment by clicking the simulation start-button."+
+                    "The display window changes."+
+                    "In the left segment a part of the program is displayed."+
+                    "In the lower left corner there are 5 buttons to control the simulation."+
+                    "The right segment shows the 2D robot in the currently selected environment."+
+                    "Copyright 2017, Robotics Lab (RoboLab), Dept. of CSE, University of Dhaka"
+            );
+        }
+
+        else if(recipient==='help') {
+            modal.find('.modal-title').text('Help');
+            modal.find('.modal-body').text(
+            "Start a program in Open Robera Sim."+
+            "A simulation program will be started from the programming environment by clicking the simulation start-button."+
+            "The display window changes."+
+            "In the left segment a part of the program is displayed."+
+            "In the lower left corner there are 5 buttons to control the simulation."+
+            "The right segment shows the 2D robot in the currently selected environment."+
+            "In the upper right corner some status information is displayed."
+            )
+        }
+    });
+
+</script>
+
+
+</body>
+
+</html>

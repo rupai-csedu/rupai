@@ -1,0 +1,2 @@
+Setting up Python Script on Boot:
+http://www.instructables.com/id/Raspberry-Pi-Launch-Python-script-on-startup/
