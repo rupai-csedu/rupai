@@ -31,15 +31,19 @@ height = disp.height
 disp.clear()
 disp.display()
 
-im = Image.open("blink.gif").convert('1')
-nframes = 0
-while im:
-    disp.image(im)
-    disp.display()
-    print nframes
-    nframes+=1
-    try:
-        im.seek(nframes)
-    except EOFError:
-        print "EOF at" + str(nframes)
-        break
+def blink():
+    ims = []
+    ims.append(Image.open("blink/1.png").convert('1'))
+    ims.append(Image.open("blink/2.png").convert('1'))
+    ims.append(Image.open("blink/3.png").convert('1'))
+    ims.append(Image.open("blink/4.png").convert('1'))
+    ims.append(Image.open("blink/5.png").convert('1'))
+
+    nframes = 0
+    for count in xrange(5):
+        disp.image(ims[count])
+        disp.display()
+        print nframes
+        nframes += 1
+
+blink()
