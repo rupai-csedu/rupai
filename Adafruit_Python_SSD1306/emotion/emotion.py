@@ -41,5 +41,5 @@ while im:
     try:
         im.seek(nframes)
     except EOFError:
-        print "EOF at" + nframes
+        print "EOF at" + str(nframes)
         break
