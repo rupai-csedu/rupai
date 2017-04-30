@@ -8,7 +8,7 @@ import cgi, cgitb
 import importlib
 import sys
 
-PORT_NUMBER = 9982
+PORT_NUMBER = 9981
 
 #This class will handles any incoming request from
 #the browser 
@@ -88,7 +88,7 @@ class myHandler(BaseHTTPRequestHandler):
 		#my_module = importlib.import_module('received.py')
 		#sys.path.append("/home/pi/Desktop/robopi-frontend/")
 		#my_module.run()
-		subprocess.call("/home/pi/Desktop/robopi-frontend/received.py", shell=True)
+		subprocess.call("/home/pi/rupai/received.py", shell=True)
 		#test.run(form["code"].value)
 		return			
 		

@@ -151,7 +151,7 @@ def turn(str):
 		
 def move_forward(time):
     print('moving forward')
-	a.analogWrite(speed_left,255)
+    a.analogWrite(speed_left,255)
     a.analogWrite(speed_right,255)
 				
     a.analogWrite(rot_left_1,255)
@@ -192,7 +192,7 @@ def turn_right():
 
 def turn_left():
 
-	a.analogWrite(speed_left,255)
+    a.analogWrite(speed_left,255)
     a.analogWrite(speed_right,255)
 				
     a.analogWrite(rot_left_1,255)

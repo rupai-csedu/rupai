@@ -154,13 +154,13 @@ def move_forward(time):
     a.analogWrite(speed_left,255)
     a.analogWrite(speed_right,255)
 				
-    a.analogWrite(rot_left_1,0)
-    a.analogWrite(rot_left_2,255)
+    a.analogWrite(rot_left_1,255)
+    a.analogWrite(rot_left_2,0)
 
-    a.analogWrite(rot_right_1,0)
-    a.analogWrite(rot_right_2,255)
+    a.analogWrite(rot_right_1,255)
+    a.analogWrite(rot_right_2,0)
 			
-    sleep(time)
+    sleep(0.2*time)
 
 
 
@@ -168,28 +168,17 @@ def move_back(time):
     a.analogWrite(speed_left,255)
     a.analogWrite(speed_right,255)
 				
-    a.analogWrite(rot_left_1,255)
-    a.analogWrite(rot_left_2,0)
-
-    a.analogWrite(rot_right_1,255)
-    a.analogWrite(rot_right_2,0)
-			
-    sleep(time)
-
-
-def turn_right():
-    a.analogWrite(speed_left,255)
-    a.analogWrite(speed_right,255)
-				
-    a.analogWrite(rot_left_1,255)
-    a.analogWrite(rot_left_2,0)
+    a.analogWrite(rot_left_1,0)
+    a.analogWrite(rot_left_2,255)
 
     a.analogWrite(rot_right_1,0)
     a.analogWrite(rot_right_2,255)
+    
 			
-    sleep(0.5)
+    sleep(0.2*time)
 
-def turn_left():
+
+def turn_right():
     a.analogWrite(speed_left,255)
     a.analogWrite(speed_right,255)
 				
@@ -199,7 +188,20 @@ def turn_left():
     a.analogWrite(rot_right_1,255)
     a.analogWrite(rot_right_2,0)
 			
-    sleep(0.5)
+    sleep(0.2)
+
+def turn_left():
+
+    a.analogWrite(speed_left,255)
+    a.analogWrite(speed_right,255)
+				
+    a.analogWrite(rot_left_1,255)
+    a.analogWrite(rot_left_2,0)
+
+    a.analogWrite(rot_right_1,0)
+    a.analogWrite(rot_right_2,255)
+	
+    sleep(0.2)
 
 def stop():
     a.analogWrite(speed_left,0)
@@ -217,9 +219,6 @@ def run():
     print('hello world')
 
 
-while True:
-  go("forward", 5)
-  if obstacleDetected():
-    stop()
+go("backward", 5)
 
 stop()
