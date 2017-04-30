@@ -140,23 +140,6 @@ def go(str,time):
         move_forward(time)
     elif(str==b):
         move_back(time)
-
-
-def motorTest(a,b,c,d):
-    a.analogWrite(speed_left,a)
-    a.analogWrite(speed_right,b)
-				
-    a.analogWrite(rot_left_1,0)
-    a.analogWrite(rot_left_2,c)
-
-    a.analogWrite(rot_right_1,0)
-    a.analogWrite(rot_right_2,d)
-    
-			
-    sleep(4)
-
-
-
 		
 def turn(str):
     tl='turn_left'

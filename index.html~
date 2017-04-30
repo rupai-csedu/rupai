@@ -177,9 +177,17 @@
       
       <category name="Control">
       	<block type="controls_if"></block>
+      	<block type="controls_repeat_ext">
+		    <value name="TIMES">
+		      <block type="math_number">
+		        <field name="NUM">10</field>
+		      </block>
+		    </value>
+      	</block>
       	<block type="controls_whileUntil"></block>
         <block type="control_wait"></block>
         <block type="control_wait_until"></block>
+        <block type="controls_flow_statements"></block>
         
         
       </category>

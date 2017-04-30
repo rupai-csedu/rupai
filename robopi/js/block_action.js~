@@ -13,7 +13,7 @@ Blockly.Blocks['action_test'] = {
         .appendField("rot_left");
 	this.appendValueInput("rot_right")
         .setCheck("Number")
-        .appendField("rot_right");
+        .appendField("speed_right");
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
