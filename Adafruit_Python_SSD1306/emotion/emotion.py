@@ -39,12 +39,14 @@ def blink():
     ims.append(Image.open("blink/4.png").convert('1'))
     ims.append(Image.open("blink/5.png").convert('1'))
 
-    nframes = 0
-    for count in xrange(5):
-        disp.image(ims[count])
-        disp.display()
-        print nframes
-        nframes += 1
-        time.sleep(0.05)
+    while True:
+        time.sleep(2.0)
+        nframes = 0
+        for count in xrange(5):
+            disp.image(ims[count])
+            disp.display()
+            print nframes
+            nframes += 1
+            time.sleep(0.05)
 
 blink()

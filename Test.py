@@ -142,15 +142,15 @@ def go(str,time):
         move_back(time)
 
 
-def motorTest(a,b,c,d):
-    a.analogWrite(speed_left,a)
-    a.analogWrite(speed_right,b)
+def testMotor(sl,sr,rl,rr):
+    a.analogWrite(speed_left,sl)
+    a.analogWrite(speed_right,sr)
 				
     a.analogWrite(rot_left_1,0)
-    a.analogWrite(rot_left_2,c)
+    a.analogWrite(rot_left_2,rl)
 
     a.analogWrite(rot_right_1,0)
-    a.analogWrite(rot_right_2,d)
+    a.analogWrite(rot_right_2,rr)
     
 			
     sleep(4)
