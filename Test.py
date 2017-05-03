@@ -4,14 +4,14 @@ from time import sleep
 from time import time
 from measure import Measure
 
-speed_left= 10 
-speed_right= 11          
-rot_left_1= 8  
-rot_left_2= 9  
-rot_right_1= 12  
-rot_right_2= 13
+speed_right= 10 
+speed_left= 11          
+rot_right_1= 8  
+rot_right_2= 9  
+rot_left_1= 12  
+rot_left_2= 2
 
-trigpin=2
+trigpin=13
 echopin=3
 
 SS2_LEFT_IN=7
@@ -19,6 +19,10 @@ SS3_CENTER=4
 CLP_BUMP=5
 SS4_RIGHT_IN=6
 
+speed_left_value=236
+speed_right_value=173
+rot_left_value=150
+rot_right_value=255
 
 try:
     connection = SerialManager()
@@ -166,38 +170,38 @@ def turn(str):
     elif(str==tr):
         turn_right()
 		
-def move_forward(time):
+def move_back(time):
     print('moving forward')
-    a.analogWrite(speed_left,255)
-    a.analogWrite(speed_right,255)
+    a.analogWrite(speed_left,speed_left_value)
+    a.analogWrite(speed_right,speed_right_value)
 				
-    a.analogWrite(rot_left_1,255)
+    a.analogWrite(rot_left_1,rot_left_value)
     a.analogWrite(rot_left_2,0)
 
-    a.analogWrite(rot_right_1,255)
+    a.analogWrite(rot_right_1,rot_right_value)
     a.analogWrite(rot_right_2,0)
 			
     sleep(0.2*time)
 
 
 
-def move_back(time):
-    a.analogWrite(speed_left,255)
-    a.analogWrite(speed_right,255)
+def move_forward(time):
+    a.analogWrite(speed_left,speed_left_value)
+    a.analogWrite(speed_right,speed_right_value)
 				
     a.analogWrite(rot_left_1,0)
-    a.analogWrite(rot_left_2,255)
+    a.analogWrite(rot_left_2,rot_left_value)
 
     a.analogWrite(rot_right_1,0)
-    a.analogWrite(rot_right_2,255)
+    a.analogWrite(rot_right_2,rot_right_value)
     
 			
     sleep(0.2*time)
 
 
 def turn_right():
-    a.analogWrite(speed_left,255)
-    a.analogWrite(speed_right,255)
+    a.analogWrite(speed_left,speed_left_value)
+    a.analogWrite(speed_right,speed_right_value)
 				
     a.analogWrite(rot_left_1,0)
     a.analogWrite(rot_left_2,255)
@@ -205,12 +209,12 @@ def turn_right():
     a.analogWrite(rot_right_1,255)
     a.analogWrite(rot_right_2,0)
 			
-    sleep(0.2)
+    sleep(0.45)
 
 def turn_left():
 
-    a.analogWrite(speed_left,255)
-    a.analogWrite(speed_right,255)
+    a.analogWrite(speed_left,speed_left_value)
+    a.analogWrite(speed_right,speed_right_value)
 				
     a.analogWrite(rot_left_1,255)
     a.analogWrite(rot_left_2,0)
@@ -218,7 +222,7 @@ def turn_left():
     a.analogWrite(rot_right_1,0)
     a.analogWrite(rot_right_2,255)
 	
-    sleep(0.2)
+    sleep(0.4)
 
 def stop():
     a.analogWrite(speed_left,0)
