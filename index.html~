@@ -37,6 +37,8 @@
     <script src="robopi/js/block_sensor.js"></script>
     <script src="robopi/js/code_control.js"></script>
     <script src="robopi/js/block_control.js"></script>
+    <script src="robopi/js/code_event.js"></script>
+    <script src="robopi/js/block_event.js"></script>
     <script src="robopi/js/color.js"></script>
     
     <!--
@@ -139,7 +141,9 @@
 
 <xml id="toolbox" style="display: none">
       <category name="Action" expanded="true">
-        <block type="action_go">
+        
+	<block type="action_test"></block>
+	<block type="action_go">
         
 		    <value name="go_steps">
 		  		<shadow type="math_number">
