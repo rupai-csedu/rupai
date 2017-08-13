@@ -1,7 +1,0 @@
-Blockly.Python['event_voice'] = function(block) {
-  var dropdown_voice_command = block.getFieldValue('voice_command');
-  var statements_voice_statements = Blockly.Python.statementToCode(block, 'voice_statements');
-  // TODO: Assemble Python into code variable.
-  var code = '...\n';
-  return code;
-};

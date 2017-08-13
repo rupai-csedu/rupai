@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google" value="notranslate">
+  <title>Rupai</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="/storage.js"></script>
+  <script src="../blockly/blockly_compressed.js"></script>
+  <script src="../blockly/blocks_compressed.js"></script>
+  <script src="../blockly/python_compressed.js"></script>
+
+  <script src="vpl/code_action.js"></script>
+  <script src="vpl/block_action.js"></script>
+  <script src="vpl/code_sensor.js"></script>
+  <script src="vpl/block_sensor.js"></script>
+  <script src="vpl/code_control.js"></script>
+  <script src="vpl/block_control.js"></script>
+  <script src="vpl/code_event.js"></script>
+  <script src="vpl/block_event.js"></script>
+  <script src="vpl/color.js"></script>
+
+  <script src="code.js"></script>
+
+</head>
+<body>
+  <table width="100%" height="100%">
+    <tr>
+      <td>
+        <div style="padding: 12px;">
+          <img src="img/logo-wide.png" height="35px" style="vertical-align: middle;">
+          <!--<span id="title"></span>-->
+          <span style="margin-left: 5px; font-weight: bold">Visual Programming Editor</span>
+        </div>
+      </td>
+      <td class="farSide">
+        <a href="#" class="far-item">About</a>
+        <a href="#" class="far-item">Contribute</a>
+        <select id="languageMenu"></select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <table width="100%">
+          <tr id="tabRow" height="1em">
+            <td id="tab_blocks" class="tabon">...</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_code" class="taboff">Code</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_example" class="taboff">Example</td>
+            <td class="tabmax">
+              <button id="trashButton" class="notext" title="...">
+                <img src='../media/1x1.gif' class="trash icon21">
+              </button>
+              <button id="linkButton" class="notext" title="...">
+                <img src='../media/1x1.gif' class="link icon21">
+              </button>
+              <button id="runButton" class="notext primary" title="...">
+                <img src='../media/1x1.gif' class="run icon21">
+              </button>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="99%" colspan=2 id="content_area">
+      </td>
+    </tr>
+  </table>
+  <div id="content_blocks" class="content"></div>
+  <pre id="content_code" class="content"></pre>
+  <pre id="content_example" class="content"></pre>
+
+  <xml id="toolbox" style="display: none">
+    <category name="Action" colour="30" expanded="true">
+
+      <block type="action_test"></block>
+      <block type="action_go">
+
+        <value name="go_steps">
+          <shadow type="math_number">
+            <field name="NUM">5</field>
+          </shadow>
+        </value>
+
+      </block>
+
+      <block type="action_go_simple"></block>
+      <block type="action_stop"></block>
+      <block type="action_turn"></block>
+      <block type="action_say">
+
+        <value name="say_text">
+          <block type="text">
+            <field name="TEXT">hello</field>
+          </block>
+        </value>
+
+      </block>
+
+    </category>
+
+    <category name="Sensor" colour="60">
+      <block type="sensor_get_distance"></block>
+      <block type="sensor_is_obstacle"></block>
+      <block type="sensor_on_track"></block>
+      <block type="sensor_left_white"></block>
+      <block type="sensor_right_white"></block>
+      <block type="sensor_centre_white"></block>
+
+
+    </category>
+
+    <category name="Control" colour="90" >
+      <block type="controls_if"></block>
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+      <block type="control_wait"></block>
+      <block type="control_wait_until"></block>
+      <block type="controls_flow_statements"></block>
+
+
+    </category>
+
+    <category name="Logic" colour="120">
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+      <block type="logic_ternary"></block>
+
+    </category>
+
+    <category name="Event" colour="150">
+      <block type="event_voice"></block>
+      <block type="event_light_left"></block>
+      <block type="event_light_right"></block>
+      <block type="event_light_centre"></block>
+
+    </category>
+
+    <category name="Math" colour="180">
+      <block type="math_number"></block>
+
+      <block type="math_arithmetic">
+        <field name="OP">ADD</field>
+        <value name="A">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="B">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+
+      <block type="math_random_int" >
+        <value name="FROM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="TO">
+          <shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+      </block>
+
+    </category>
+
+    <category name="Text" colour="210">
+      <block type="text"></block>
+
+    </category>
+
+    <category name="Color" colour="240">
+      <block type="color"></block>
+
+    </category>
+
+    <sp></sp>
+    <category name="Variables" colour="270" custom="VARIABLE"></category>
+  </xml>
+
+</body>
+</html>
