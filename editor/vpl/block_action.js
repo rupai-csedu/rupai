@@ -17,7 +17,7 @@ Blockly.Blocks['action_test'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(180);
+    this.setColour(colorsInt.Action);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -34,7 +34,7 @@ Blockly.Blocks['action_go'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(180);
+    this.setColour(colorsInt.Action);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -46,7 +46,7 @@ Blockly.Blocks['action_stop'] = {
         .appendField("stop");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(180);
+    this.setColour(colorsInt.Action);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -58,7 +58,7 @@ Blockly.Blocks['action_turn'] = {
         .appendField(new Blockly.FieldDropdown([["turn left","turn_left"], ["turn right","turn_right"]]), "turn_dropdown");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(180);
+    this.setColour(colorsInt.Action);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -70,7 +70,7 @@ Blockly.Blocks['action_go_simple'] = {
         .appendField(new Blockly.FieldDropdown([["go forward","forward"], ["go backward","backward"]]), "go_simple_dropdown");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(180);
+    this.setColour(colorsInt.Action);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -83,7 +83,7 @@ Blockly.Blocks['action_say'] = {
         .appendField("say");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(180);
+    this.setColour(colorsInt.Action);
     this.setTooltip('');
     this.setHelpUrl('');
   }

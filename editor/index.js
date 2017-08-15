@@ -249,7 +249,9 @@ Code.renderContent = function() {
       code = prettyPrintOne(code, 'py');
       content.innerHTML = code;
     }
-  } else if (content.id == 'content_example') {
+  }
+
+  else if (content.id == 'content_example') {
     content.textContent = "There should be examples and inspirations";
   }
 };
@@ -339,6 +341,17 @@ Code.init = function() {
   }
   onresize();
   Blockly.svgResize(Code.workspace);
+
+  // meha gui patch
+  Code.workspace.addChangeListener(function (primaryEvent) {
+    if (primaryEvent.type == Blockly.Events.UI) {
+      // Convert event to JSON.  This could then be transmitted across the net.
+      var json = primaryEvent.toJson();
+      console.log(json);
+      if(primaryEvent.element=='category')
+        document.getElementsByClassName('blocklyFlyoutBackground')[0].style.fill = colorsInt[primaryEvent.newValue];
+    }
+  });
 
   // Lazy-load the syntax-highlighting.
   window.setTimeout(Code.importPrettify, 1);

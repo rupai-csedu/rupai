@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        .chat_box {
+            display: inline-block;
+            border: 1px solid #9c9c9c;
+            width: 250px;
+        }
+
+        .user_box {
+            display: block;
+            padding: 4px;
+            background-color: #5e75a7;
+            color: #fff;
+            bottom: 0;
+        }
+
+        .user_box:hover {
+            cursor: pointer;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .message_post {
+            border-top: 1px solid #EFEFEF;
+            display: block;
+            padding: 5px 3px;
+        }
+
+        .message_text {
+            margin-left: 5px;
+        }
+
+        .message_content {
+            border: 1px solid #ddd;
+            height: 225px;
+            overflow-y: scroll;
+        }
+
+        .box_reply {
+            border: 1px solid #ddd;
+        }
+
+        .text_reply {
+            display: block;
+            width: 99%;
+        }
+
+        .user_img {}
+
+        .hide_wrap_box {
+            height: 22px;
+            bottom: 0;
+        }
+
+        .name {
+            display: block;
+            width: 80%;
+        }
+
+        .index_reload {
+            position: absolute;
+            bottom: 0;
+            left: 200px;
+        }
+
+        #chat_area {
+            float: right;
+        }
+
+    </style>
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="index_reload">
+    <!--index_reload-->
+    <div id="chat_area">
+        <div class="chat_box main_chat1">
+            <!--chat_box-->
+            <div class="user_box">
+                <div class="name open_chat1 left">Camera</div>
+                <div class="closed1 right">x &nbsp;</div>
+                <div class="clear"></div>
+            </div>
+            <div class="wrap_box1">
+                <!--wrap_box-->
+                <div class="message_content">
+                    <iframe src="index.html"
+                            style="-webkit-transform:scale(0.5);-moz-transform-scale(0.5);"
+                            width="600" height="600">
+                    </iframe>
+                </div>
+            </div>
+            <!--wrap_box-->
+        </div>
+    </div>
+</div>
+<!--index_reload-->
+</body>
+
+<script>
+    $(document).ready(function() {
+
+        //Dont worry about this script im using php to loop this is just temporary
+        //Close
+        $('.closed1').click(function() {
+            $('.wrap_box1').hide();
+            $('.main_chat1').addClass('hide_wrap_box');
+            $('.right').hide();
+        });
+
+        //Open
+        $('.open_chat1').click(function() {
+            $('.wrap_box1').show();
+            $('.main_chat1').removeClass('hide_wrap_box');
+            $('.right').show();
+        });
+    });
+
+</script>
+</html>

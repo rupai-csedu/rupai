@@ -383,7 +383,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyFlyoutBackground {',
     'fill: #ddd;',
-    'fill-opacity: .8;',
+    'fill-opacity: .6;',
   '}',
 
   '.blocklyScrollbarHorizontal, .blocklyScrollbarVertical {',

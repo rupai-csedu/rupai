@@ -8,8 +8,25 @@
   <link rel="stylesheet" href="style.css">
 
   <script src="/storage.js"></script>
+
+  <script>
+    // global colors
+    const colorsInt = {
+      Action: "#D96C00",
+      Control: "#5BA45B",
+      Logic: "#5A7FA4", //UNUSED
+      Math: "#5A66A4", //UNUSED
+      Text: "#5BA48B", //UNUSED
+      Color: "#E69900",
+      Sensor: "#A1A128",
+      Event: "#287AA1",
+      Variables: "#A55B80" //UNUSED
+    };
+  </script>
+
   <script src="../blockly/blockly_compressed.js"></script>
   <script src="../blockly/blocks_compressed.js"></script>
+
   <script src="../blockly/python_compressed.js"></script>
 
   <script src="vpl/code_action.js"></script>
@@ -22,12 +39,12 @@
   <script src="vpl/block_event.js"></script>
   <script src="vpl/color.js"></script>
 
-  <script src="code.js"></script>
+  <script src="index.js"></script>
 
 </head>
 <body>
   <table width="100%" height="100%">
-    <tr>
+    <tr class="header">
       <td>
         <div style="padding: 12px;">
           <img src="img/logo-wide.png" height="35px" style="vertical-align: middle;">
@@ -41,7 +58,7 @@
         <select id="languageMenu"></select>
       </td>
     </tr>
-    <tr>
+    <tr class="tabs">
       <td colspan=2>
         <table width="100%">
           <tr id="tabRow" height="1em">
@@ -75,7 +92,7 @@
   <pre id="content_example" class="content"></pre>
 
   <xml id="toolbox" style="display: none">
-    <category name="Action" colour="30" expanded="true">
+    <category name="Action" colour="#D96C00" expanded="true">
 
       <block type="action_test"></block>
       <block type="action_go">
@@ -103,18 +120,7 @@
 
     </category>
 
-    <category name="Sensor" colour="60">
-      <block type="sensor_get_distance"></block>
-      <block type="sensor_is_obstacle"></block>
-      <block type="sensor_on_track"></block>
-      <block type="sensor_left_white"></block>
-      <block type="sensor_right_white"></block>
-      <block type="sensor_centre_white"></block>
-
-
-    </category>
-
-    <category name="Control" colour="90" >
+    <category name="Control" colour="#5BA45B" >
       <block type="controls_if"></block>
       <block type="controls_repeat_ext">
         <value name="TIMES">
@@ -131,7 +137,7 @@
 
     </category>
 
-    <category name="Logic" colour="120">
+    <category name="Logic" colour="#5A7FA4">
       <block type="logic_compare"></block>
       <block type="logic_operation"></block>
       <block type="logic_negate"></block>
@@ -140,15 +146,7 @@
 
     </category>
 
-    <category name="Event" colour="150">
-      <block type="event_voice"></block>
-      <block type="event_light_left"></block>
-      <block type="event_light_right"></block>
-      <block type="event_light_centre"></block>
-
-    </category>
-
-    <category name="Math" colour="180">
+    <category name="Math" colour="#5A66A4">
       <block type="math_number"></block>
 
       <block type="math_arithmetic">
@@ -180,18 +178,37 @@
 
     </category>
 
-    <category name="Text" colour="210">
+    <category name="Text" colour="#5BA48B">
       <block type="text"></block>
 
     </category>
 
-    <category name="Color" colour="240">
+    <category name="Color" colour="#E69900">
       <block type="color"></block>
 
     </category>
 
+    <category name="Sensor" colour="#A1A128">
+      <block type="sensor_get_distance"></block>
+      <block type="sensor_is_obstacle"></block>
+      <block type="sensor_on_track"></block>
+      <block type="sensor_left_white"></block>
+      <block type="sensor_right_white"></block>
+      <block type="sensor_centre_white"></block>
+
+
+    </category>
+
+    <category name="Event" colour="#287AA1">
+      <block type="event_voice"></block>
+      <block type="event_light_left"></block>
+      <block type="event_light_right"></block>
+      <block type="event_light_centre"></block>
+
+    </category>
+
     <sp></sp>
-    <category name="Variables" colour="270" custom="VARIABLE"></category>
+    <category name="Variables" colour="#A55B80" custom="VARIABLE"></category>
   </xml>
 
 </body>

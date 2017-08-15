@@ -11,7 +11,7 @@ Blockly.Blocks['control_while'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(colorsInt.Control);
     this.setTooltip('while loop');
     this.setHelpUrl('');
   }
@@ -29,7 +29,7 @@ Blockly.Blocks['control_while_do_true'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(colorsInt.Control);
     this.setTooltip('while_do');
     this.setHelpUrl('');
   }
@@ -48,7 +48,7 @@ Blockly.Blocks['control_wait'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(colorsInt.Control);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -65,7 +65,7 @@ Blockly.Blocks['control_wait_until'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(colorsInt.Control);
     this.setTooltip('wait until (logic)');
     this.setHelpUrl('');
   }

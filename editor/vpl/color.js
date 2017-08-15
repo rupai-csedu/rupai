@@ -9,7 +9,7 @@ Blockly.Blocks['color'] = {
         .appendField("\"");
     this.setInputsInline(true);
     this.setOutput(true, "String");
-    this.setColour(230);
+    this.setColour(colorsInt.Color);
     this.setTooltip('');
     this.setHelpUrl('');
   }

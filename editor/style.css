@@ -9,6 +9,15 @@ body {
   overflow: hidden;
 }
 
+.header {
+  background: #f1f1f1;
+}
+
+.tabs {
+  background: #f1f1f1;
+}
+
+
 a {
   text-decoration: none;
   color: #000;
@@ -105,7 +114,7 @@ td.taboff {
   padding: 5px 19px;
 }
 td.taboff:hover {
-  background-color: #eee;
+  background-color: #e9e9e9;
 }
 td.tabmin {
   border-top-style: none !important;
