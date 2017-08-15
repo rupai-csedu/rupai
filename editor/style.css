@@ -101,20 +101,30 @@ h1 {
 
 /* Tabs */
 #tabRow>td {
-  border: 1px solid #ccc;
   border-bottom: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 td.tabon {
   border-bottom-color: #ddd !important;
-  background-color: #ddd;
+  background: #d14836;
+  color: white;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#dd4b39),to(#d14836));
+  background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);
+  background-image: -moz-linear-gradient(top,#dd4b39,#d14836);
+  background-image: -ms-linear-gradient(top,#dd4b39,#d14836);
+  background-image: -o-linear-gradient(top,#dd4b39,#d14836);
   padding: 5px 19px;
+  border: none !important;
 }
 td.taboff {
+  color: white;
+  background: #8e8e8e;
   cursor: pointer;
   padding: 5px 19px;
 }
 td.taboff:hover {
-  background-color: #e9e9e9;
+  background-color: #6f6f6f;
 }
 td.tabmin {
   border-top-style: none !important;

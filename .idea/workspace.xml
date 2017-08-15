@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f11e8b6-3688-492c-b929-33d80f50e4fa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/editor/chat.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/editor/embed.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/editor/code.js" afterPath="$PROJECT_DIR$/editor/index.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/openroberta/blockly_compressed.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/openroberta/blocks_compressed.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blockly/blockly_compressed.js" afterPath="$PROJECT_DIR$/blockly/blockly_compressed.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blockly/core/css.js" afterPath="$PROJECT_DIR$/blockly/core/css.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editor/index.html" afterPath="$PROJECT_DIR$/editor/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editor/style.css" afterPath="$PROJECT_DIR$/editor/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editor/vpl/block_action.js" afterPath="$PROJECT_DIR$/editor/vpl/block_action.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editor/vpl/block_control.js" afterPath="$PROJECT_DIR$/editor/vpl/block_control.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editor/vpl/block_event.js" afterPath="$PROJECT_DIR$/editor/vpl/block_event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editor/vpl/block_sensor.js" afterPath="$PROJECT_DIR$/editor/vpl/block_sensor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editor/vpl/color.js" afterPath="$PROJECT_DIR$/editor/vpl/color.js" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +31,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/editor/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1014">
-              <caret line="210" column="46" selection-start-line="210" selection-start-column="46" selection-end-line="210" selection-end-column="46" />
+            <state relative-caret-position="530">
+              <caret line="180" column="40" selection-start-line="180" selection-start-column="39" selection-end-line="180" selection-end-column="40" />
               <folding>
                 <element signature="n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -59,7 +52,7 @@
       <file leaf-file-name="block_action.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/editor/vpl/block_action.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
+            <state relative-caret-position="3400">
               <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
               <folding />
             </state>
@@ -79,7 +72,7 @@
       <file leaf-file-name="block_sensor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/editor/vpl/block_sensor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
+            <state relative-caret-position="1520">
               <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
               <folding />
             </state>
@@ -89,18 +82,18 @@
       <file leaf-file-name="block.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blockly/core/block.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="632" column="0" selection-start-line="632" selection-start-column="0" selection-end-line="632" selection-end-column="0" />
+            <state relative-caret-position="400">
+              <caret line="641" column="2" selection-start-line="641" selection-start-column="2" selection-end-line="641" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/editor/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="354" column="0" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
+            <state relative-caret-position="458">
+              <caret line="281" column="53" selection-start-line="281" selection-start-column="50" selection-end-line="281" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -109,8 +102,8 @@
       <file leaf-file-name="blockly_compressed.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blockly/blockly_compressed.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="1477" column="166" selection-start-line="1477" selection-start-column="166" selection-end-line="1477" selection-end-column="166" />
+            <state relative-caret-position="356">
+              <caret line="1480" column="26" selection-start-line="1480" selection-start-column="26" selection-end-line="1480" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -119,8 +112,18 @@
       <file leaf-file-name="css.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blockly/core/css.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="385" column="21" selection-start-line="385" selection-start-column="21" selection-end-line="385" selection-end-column="21" />
+            <state relative-caret-position="676">
+              <caret line="481" column="22" selection-start-line="481" selection-start-column="22" selection-end-line="481" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/editor/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="839">
+              <caret line="126" column="27" selection-start-line="126" selection-start-column="27" selection-end-line="126" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -129,7 +132,7 @@
       <file leaf-file-name="flyout.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blockly/core/flyout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
+            <state relative-caret-position="11080">
               <caret line="295" column="17" selection-start-line="295" selection-start-column="17" selection-end-line="295" selection-end-column="17" />
               <folding />
             </state>
@@ -170,7 +173,6 @@
         <option value="$PROJECT_DIR$/editor/code.js" />
         <option value="$PROJECT_DIR$/editor/chat.html" />
         <option value="$PROJECT_DIR$/editor/embed.html" />
-        <option value="$PROJECT_DIR$/editor/style.css" />
         <option value="$PROJECT_DIR$/editor/openroberta/blockly_compressed.js" />
         <option value="$PROJECT_DIR$/editor/openroberta/blocks_compressed.js" />
         <option value="$PROJECT_DIR$/editor/vpl/block_action.js" />
@@ -182,6 +184,7 @@
         <option value="$PROJECT_DIR$/blockly/blockly_compressed.js" />
         <option value="$PROJECT_DIR$/blockly/core/css.js" />
         <option value="$PROJECT_DIR$/editor/index.js" />
+        <option value="$PROJECT_DIR$/editor/style.css" />
       </list>
     </option>
   </component>
@@ -226,7 +229,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -261,6 +263,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -394,17 +397,19 @@
       <workItem from="1502743786966" duration="575000" />
       <workItem from="1502744852709" duration="1657000" />
       <workItem from="1502783548063" duration="4833000" />
+      <workItem from="1502788630567" duration="6000" />
+      <workItem from="1502797414170" duration="1895000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67340000" />
+    <option name="totallyTimeSpent" value="69241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="-14" width="2764" height="1762" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.303099" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31292516" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997313" sideWeight="0.5015117" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -447,7 +452,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/editor/index.js</url>
           <line>348</line>
-          <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
@@ -607,7 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
           <caret line="1498" column="728" selection-start-line="1498" selection-start-column="727" selection-end-line="1498" selection-end-column="728" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -629,14 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="4" column="14" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/editor/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -644,10 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2480">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding>
-            <element signature="e#1241#1247#0" expanded="false" />
-            <element signature="e#1350#1354#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -655,10 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="130" column="34" selection-start-line="130" selection-start-column="34" selection-end-line="130" selection-end-column="34" />
-          <folding>
-            <element signature="e#2288#2294#0" expanded="false" />
-            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -666,15 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blockly/core/block.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="632" column="0" selection-start-line="632" selection-start-column="0" selection-end-line="632" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -682,7 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -690,13 +667,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="999">
           <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/editor/vpl/block_sensor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
+        <state relative-caret-position="1520">
           <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
           <folding />
         </state>
@@ -712,7 +688,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/editor/vpl/block_action.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
+        <state relative-caret-position="3400">
           <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
           <folding />
         </state>
@@ -722,14 +698,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="479">
           <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blockly/core/flyout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11080">
+          <caret line="295" column="17" selection-start-line="295" selection-start-column="17" selection-end-line="295" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blockly/core/block.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="641" column="2" selection-start-line="641" selection-start-column="2" selection-end-line="641" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blockly/blockly_compressed.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="1480" column="26" selection-start-line="1480" selection-start-column="26" selection-end-line="1480" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blockly/core/css.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="481" column="22" selection-start-line="481" selection-start-column="22" selection-end-line="481" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/editor/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1014">
-          <caret line="210" column="46" selection-start-line="210" selection-start-column="46" selection-end-line="210" selection-end-column="46" />
+        <state relative-caret-position="530">
+          <caret line="180" column="40" selection-start-line="180" selection-start-column="39" selection-end-line="180" selection-end-column="40" />
           <folding>
             <element signature="n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -745,34 +752,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blockly/blockly_compressed.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="1477" column="166" selection-start-line="1477" selection-start-column="166" selection-end-line="1477" selection-end-column="166" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blockly/core/css.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="385" column="21" selection-start-line="385" selection-start-column="21" selection-end-line="385" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blockly/core/flyout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="295" column="17" selection-start-line="295" selection-start-column="17" selection-end-line="295" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/editor/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="354" column="0" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
+        <state relative-caret-position="458">
+          <caret line="281" column="53" selection-start-line="281" selection-start-column="50" selection-end-line="281" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editor/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="126" column="27" selection-start-line="126" selection-start-column="27" selection-end-line="126" selection-end-column="27" />
           <folding />
         </state>
       </provider>
