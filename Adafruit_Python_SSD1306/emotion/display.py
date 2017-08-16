@@ -49,17 +49,10 @@ x = padding
 font = ImageFont.truetype('pixeled.ttf', 12)
 
 
-while True:
-    # Clear image buffer by drawing a black filled box.
-    draw.rectangle((0,0,width,height), outline=0, fill=0)
+def text(text_to_display, row, col):
+    draw.text((row, col), text_to_display, font=font, fill=255)
+    disp.image(image)
+    disp.display()
 
-    count = 0
-    for count in xrange(width):
-	draw.rectangle((0,0,width,height), outline=0, fill=0)
-        draw.text((count, top), 'Hello World!', font=font, fill=255)
-
-        # Display image.
-        disp.image(image)
-        disp.display()
-
-        time.sleep(0.05)
+text('hello', 3, 15)
+text('world', 4, 15)
