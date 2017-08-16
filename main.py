@@ -239,4 +239,11 @@ def stop():
 def run():
     print('hello world')
 
+def add_event_listener(type, cb):
+    return
 
+
+go("forward", 10)
+exit()testMotor(255,255,255,255)
+
+stop()
