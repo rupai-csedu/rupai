@@ -28,7 +28,7 @@ disp.display()
 # Make sure to create image with mode '1' for 1-bit color.
 width = disp.width
 height = disp.height
-print width + " " + height
+print str(width) + " " + str(height)
 image = Image.new('1', (width, height))
 
 # Get drawing object to draw on image.
