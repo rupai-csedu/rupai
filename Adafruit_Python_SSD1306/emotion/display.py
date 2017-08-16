@@ -46,13 +46,14 @@ bottom = height-padding
 x = padding
 
 # Load font.
-font = ImageFont.truetype('pixeled.ttf', 12)
+# font = ImageFont.truetype('pixeled.ttf', 12)
+font = ImageFont.load_default()
 
 
 def text(text_to_display, row, col):
-    draw.text((row, col), text_to_display, font=font, fill=255)
+    draw.text((col, row), text_to_display, font=font, fill=255)
     disp.image(image)
     disp.display()
 
-text('hello', 3, 15)
-text('world', 4, 15)
+text('hello', 0, 0)
+text('world', 12, 15)
