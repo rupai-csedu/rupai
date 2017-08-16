@@ -2,13 +2,13 @@
 from http.server import BaseHTTPRequestHandler,HTTPServer
 from os import curdir, sep
 import subprocess
-import test
+#import template
 import shutil
 import cgi, cgitb 
 import importlib
 import sys
 
-PORT_NUMBER = 9983
+PORT_NUMBER = 9982
 
 #This class will handles any incoming request from
 #the browser 
@@ -52,7 +52,7 @@ class myHandler(BaseHTTPRequestHandler):
 
 			if sendReply == True:
 				#Open the static file requested and send it
-				f = open(curdir + sep + self.path,'rb') 
+				f = open(curdir + sep +"editor"+ sep+ self.path,'rb')
 				self.send_response(200)
 				self.send_header('Content-type',mimetype)
 				self.end_headers()
@@ -78,17 +78,17 @@ class myHandler(BaseHTTPRequestHandler):
 		self.send_response(200)
 		self.end_headers()
 		self.wfile.write(("$RoboPI: %s " % form["code"].value).encode())
-		shutil.copy('Test.py','received.py', )
-		file = open("received.py","a") 
+		shutil.copy('template.py','main.py', )
+		file = open("main.py","a")
 		file.write(form["code"].value)
 		file.write("\n")
 		file.write("stop()\n")
 		file.close()
 
-		#my_module = importlib.import_module('received.py')
+		#my_module = importlib.import_module('main.py')
 		#sys.path.append("/home/pi/Desktop/robopi-frontend/")
 		#my_module.run()
-		subprocess.call("/home/pi/rupai/received.py", shell=True)
+		subprocess.call("/home/pi/rupai/main.py", shell=True)
 		#test.run(form["code"].value)
 		return			
 		

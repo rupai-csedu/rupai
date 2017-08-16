@@ -239,9 +239,9 @@ def stop():
 def run():
     print('hello world')
 
+def add_event_listener(type, cb):
+    return
 
-for count in range(10):
-  go("forward", 10)
-turn("turn_right")
 
-stop()
+go("forward", 10)
+exit()

@@ -298,7 +298,7 @@ Code.init = function() {
            length: 3,
            colour: '#ccc',
            snap: true},
-       media: '../media/',
+       media: 'media/',
        rtl: rtl,
        toolbox: toolboxXml,
        zoom:
@@ -407,7 +407,16 @@ Code.initLanguage = function() {
  * Just a quick and dirty eval.  Catch infinite loops.
  */
 Code.runJS = function() {
-  console.log("Running");
+    console.log("Running");
+
+    Blockly.Python.INFINITE_LOOP_TRAP = null;
+    var codes = Blockly.Python.workspaceToCode(Code.workspace);
+
+    $.post("sendcode.py", {
+        code: codes
+    }, function (data) {
+        //do something
+    })
 };
 
 /**
