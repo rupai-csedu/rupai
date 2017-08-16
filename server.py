@@ -8,7 +8,7 @@ import cgi, cgitb
 import importlib
 import sys
 
-PORT_NUMBER = 9982
+PORT_NUMBER = 9980
 
 #This class will handles any incoming request from
 #the browser 

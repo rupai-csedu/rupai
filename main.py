@@ -243,7 +243,10 @@ def add_event_listener(type, cb):
     return
 
 
-go("forward", 10)
-exit()testMotor(255,255,255,255)
+go("forward", 5)
+stop()
+exit()
+
+go("backward", 5)
 
 stop()

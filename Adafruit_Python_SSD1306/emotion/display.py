@@ -55,11 +55,11 @@ while True:
 
     count = 0
     for count in xrange(width):
-
-        draw.text((count, top), 'A', font=font, fill=255)
+	draw.rectangle((0,0,width,height), outline=0, fill=0)
+        draw.text((count, top), 'Hello World!', font=font, fill=255)
 
         # Display image.
         disp.image(image)
         disp.display()
 
-        time.sleep(0.5)
+        time.sleep(0.05)
