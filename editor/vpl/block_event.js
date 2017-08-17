@@ -5,8 +5,8 @@ Blockly.Blocks['event_voice'] = {
         .appendField(new Blockly.FieldDropdown([["stop","voice_stop"], ["go left","voice_left"], ["go right","voice_right"]]), "voice_command");
     this.appendStatementInput("voice_statements")
         .setCheck(null);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+    //this.setPreviousStatement(true, null);
+    //this.setNextStatement(true, null);
     this.setColour(colorsInt.Event);
     this.setTooltip('');
     this.setHelpUrl('');
@@ -21,8 +21,8 @@ Blockly.Blocks['event_light_left'] = {
         .appendField(new Blockly.FieldDropdown([["white","light_left_white"], ["black","light_left_black"]]), "light_left_dropdown");
     this.appendStatementInput("light_left_statements")
         .setCheck(null);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+    //this.setPreviousStatement(true, null);
+    //this.setNextStatement(true, null);
     this.setColour(colorsInt.Event);
     this.setTooltip('');
     this.setHelpUrl('');
@@ -36,8 +36,8 @@ Blockly.Blocks['event_light_right'] = {
         .appendField(new Blockly.FieldDropdown([["white","light_right_white"], ["black","light_right_black"]]), "light_right_dropdown");
     this.appendStatementInput("light_right_statements")
         .setCheck(null);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+    //this.setPreviousStatement(true, null);
+    //this.setNextStatement(true, null);
     this.setColour(colorsInt.Event);
     this.setTooltip('');
     this.setHelpUrl('');
@@ -52,8 +52,8 @@ Blockly.Blocks['event_light_centre'] = {
         .appendField(new Blockly.FieldDropdown([["white","light_centre_white"], ["black","light_centre_black"]]), "light_centre_dropdown");
     this.appendStatementInput("light_centre_statements")
         .setCheck(null);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+    //this.setPreviousStatement(true, null);
+    //this.setNextStatement(true, null);
     this.setColour(colorsInt.Event);
     this.setTooltip('');
     this.setHelpUrl('');

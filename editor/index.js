@@ -344,10 +344,11 @@ Code.init = function() {
 
   // meha gui patch
   Code.workspace.addChangeListener(function (primaryEvent) {
+    // Convert event to JSON.  This could then be transmitted across the net.
+    //var json = primaryEvent.toJson();
+    //console.log(json);
+
     if (primaryEvent.type == Blockly.Events.UI) {
-      // Convert event to JSON.  This could then be transmitted across the net.
-      var json = primaryEvent.toJson();
-      console.log(json);
       if(primaryEvent.element=='category')
         document.getElementsByClassName('blocklyFlyoutBackground')[0].style.fill = colorsInt[primaryEvent.newValue];
     }
@@ -409,14 +410,51 @@ Code.initLanguage = function() {
 Code.runJS = function() {
     console.log("Running");
 
-    Blockly.Python.INFINITE_LOOP_TRAP = null;
+    /*Blockly.Python.INFINITE_LOOP_TRAP = null;
     var codes = Blockly.Python.workspaceToCode(Code.workspace);
 
-    $.post("sendcode.py", {
+    console.log(Code.workspace);
+    console.log('>> sending= '+codes);*/
+
+
+    var allXml = Blockly.Xml.workspaceToDom(Code.workspace);
+    console.log(allXml);
+
+    var mainCode = [], eventListeners = [];
+
+    var xml;
+    while(xml = allXml.childNodes.item(0)) {
+
+      console.log("found: "+ xml);
+
+      var blockDom = goog.dom.createDom('xml');
+      blockDom.appendChild(xml);
+
+      var headless = new Blockly.Workspace();
+      Blockly.Xml.domToWorkspace(blockDom, headless);
+      var c = Blockly.Python.workspaceToCode(headless);
+
+      //console.log(headless);
+      //console.log("HEADLESS: "+ c);
+
+      if(c.indexOf('add_event')!=-1) {
+        eventListeners.push(c);
+      }
+      else {
+        mainCode.push(c);
+      }
+      headless.dispose();
+    }
+
+    console.log(mainCode);
+    console.log(eventListeners);
+
+
+    /*$.post("sendcode.py", {
         code: codes
     }, function (data) {
         //do something
-    })
+    })*/
 };
 
 /**
@@ -436,6 +474,6 @@ Code.discard = function() {
 // Load the Code demo's language strings.
 document.write('<script src="msg/' + Code.LANG + '.js"></script>\n');
 // Load Blockly's language strings.
-document.write('<script src="../blockly/msg/js/' + Code.LANG + '.js"></script>\n');
+document.write('<script src="blockly/msg/js/' + Code.LANG + '.js"></script>\n');
 
 window.addEventListener('load', Code.init);
