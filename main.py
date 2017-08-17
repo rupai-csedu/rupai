@@ -3,6 +3,7 @@ from nanpy import (ArduinoApi, SerialManager)
 from time import sleep
 from time import time
 from measure import Measure
+import thread
 
 speed_right= 10 
 speed_left= 11          
@@ -239,14 +240,25 @@ def stop():
 def run():
     print('hello world')
 
-def add_event_listener(type, cb):
-    return
+
+def mainLoop():
+    while True:
+        print(a.analogRead(12))
+        sleep(0.5)
+
+def add_event(type):
+    try:
+        thread.start_new_thread(mainLoop, ())
+    except:
+        print("Error: unable to start thread")
 
 
-go("forward", 5)
-stop()
-exit()
+def light_left_white():
+  go("backward", 10)
 
-go("backward", 5)
+add_event("light_left_white")
+
+for count in range(10):
+  go("forward", 10)
 
 stop()
