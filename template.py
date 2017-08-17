@@ -241,15 +241,31 @@ def run():
     print('hello world')
 
 
-def mainLoop():
+#event_management
+
+events= []
+
+
+def check_light_left_white():
+    print("checking left white")
+    return True
+
+def event_check_loop():
     while True:
-        print(a.analogRead(12))
-        sleep(0.5)
+        for event in events:
+            sleep(.5)
+            print("in event check loop")
+            if event=='light_left_white' and check_light_left_white():
+                event()
+
+
 
 def add_event(type):
-    try:
-        thread.start_new_thread(mainLoop, ())
-    except:
-        print("Error: unable to start thread")
+    events.append(type)
 
+
+try:
+    thread.start_new_thread(event_check_loop, ())
+except:
+    print("Error: unable to start thread")
 
