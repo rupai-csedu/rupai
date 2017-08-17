@@ -1,5 +1,4 @@
 import _thread
-import time
 
 
 TAG1 = 'main> '
