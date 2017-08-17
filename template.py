@@ -250,15 +250,17 @@ def check_light_left_white():
     print("checking left white")
     return True
 
+def light_left_white():
+    print("dummy function called")
+
+
 def event_check_loop():
     while True:
         for event in events:
             sleep(.5)
             print("in event check loop")
             if event=='light_left_white' and check_light_left_white():
-                event()
-
-
+                light_left_white()
 
 def add_event(type):
     events.append(type)
