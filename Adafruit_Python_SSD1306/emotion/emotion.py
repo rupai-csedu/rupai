@@ -45,7 +45,7 @@ def blink():
         for count in xrange(5):
             disp.image(ims[count])
             disp.display()
-            print nframes
+            # print nframes
             nframes += 1
             time.sleep(0.05)
 
