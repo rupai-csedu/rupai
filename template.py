@@ -243,5 +243,7 @@ def add_event_listener(type, cb):
     return
 
 
-go("forward", 10)
+go("forward", 5)
+stop()
 exit()
+
