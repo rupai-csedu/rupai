@@ -16,7 +16,7 @@ Blockly.Python['event_light_left'] = function(block) {
       Blockly.Python.PASS;
   
   var listener= 'add_event(\"'+dropdown+'\")'+'\n';
-  var code = 'def '+dropdown+'('+'):'+'\n'+branch+'\n'+listener;
+  var code = 'def light_left('+'):'+'\n'+branch+'\n'+listener;
   return code;
 };
 
