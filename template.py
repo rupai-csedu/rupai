@@ -84,6 +84,7 @@ def obstacleDetected():
 def leftIsWhite():
     LeftIn =  a.digitalRead(SS2_LEFT_IN)
     if (LeftIn   == 1):
+        print("yaah! left is white")
         return True
     else:
         return False
@@ -302,6 +303,11 @@ def text(text_to_display, row, col):
     disp.image(image)
     disp.display()
 
+def clear_display():
+    # Draw a black filled box to clear the image.
+    draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    disp.image(image)
+    disp.display()
 
 
 #This block is for event_management
@@ -311,7 +317,7 @@ events= []
 
 def check_light_left_white():
     print("checking left white")
-    return True
+    return leftIsWhite()
 
 def light_left_white():
     print("dummy function called")
@@ -320,7 +326,6 @@ def light_left_white():
 def event_check_loop():
     while True:
         for event in events:
-            sleep(10)
             print("in event check loop")
             if event=='light_left_white' and check_light_left_white():
                 light_left_white()
