@@ -94,12 +94,12 @@ Blockly.Blocks['show_text'] = {
     this.appendValueInput("show_text_input")
         .setCheck("String")
         .appendField("show text");
-    this.appendValueInput("show_text_column")
-        .setCheck("Number")
-        .appendField("in column");
     this.appendValueInput("show_text_row")
         .setCheck("Number")
         .appendField("in row");
+    this.appendValueInput("show_text_column")
+        .setCheck("Number")
+        .appendField("in column");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(colorsInt.Action);

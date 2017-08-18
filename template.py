@@ -5,6 +5,17 @@ from time import time
 from measure import Measure
 import thread
 
+import Adafruit_GPIO.SPI as SPI
+import Adafruit_SSD1306
+
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+
+
+
+#This block is for arduino codes
+
 speed_right= 10 
 speed_left= 11          
 rot_right_1= 8  
@@ -160,8 +171,6 @@ def testMotor(sl,sr,rl,rr):
 			
     sleep(4)
 
-
-
 		
 def turn(str):
     tl='turn_left'
@@ -241,7 +250,61 @@ def run():
     print('hello world')
 
 
-#event_management
+
+#This block is for showing display
+
+
+# Raspberry Pi pin configuration:
+RST = 24
+# Note the following are only used with SPI:
+DC = 23
+SPI_PORT = 0
+SPI_DEVICE = 0
+
+# 128x64 display with hardware SPI:
+disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST, dc=DC, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=8000000))
+
+# Initialize library.
+disp.begin()
+
+# Clear display.
+disp.clear()
+disp.display()
+
+# Create blank image for drawing.
+# Make sure to create image with mode '1' for 1-bit color.
+width = disp.width
+height = disp.height
+print (str(width) + " " + str(height))
+image = Image.new('1', (width, height))
+
+# Get drawing object to draw on image.
+draw = ImageDraw.Draw(image)
+
+# Draw a black filled box to clear the image.
+draw.rectangle((0, 0, width, height), outline=0, fill=0)
+
+# Draw some shapes.
+padding = 2
+
+top = padding
+bottom = height-padding
+# Move left to right keeping track of the current x position for drawing shapes.
+x = padding
+
+# Load font.
+# font = ImageFont.truetype('pixeled.ttf', 12)
+font = ImageFont.load_default()
+
+
+def text(text_to_display, row, col):
+    draw.text((col, row), text_to_display, font=font, fill=255)
+    disp.image(image)
+    disp.display()
+
+
+
+#This block is for event_management
 
 events= []
 
@@ -266,9 +329,8 @@ def add_event(type):
     events.append(type)
 
 
-#try:
-#    thread.start_new_thread(event_check_loop, ())
-#except:
-#    print("Error: unable to start thread")
-
+try:
+    thread.start_new_thread(event_check_loop, ())
+except:
+    print("Error: unable to start thread")
 
