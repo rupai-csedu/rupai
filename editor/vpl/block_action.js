@@ -100,6 +100,8 @@ Blockly.Blocks['show_text'] = {
     this.appendValueInput("show_text_row")
         .setCheck("Number")
         .appendField("in row");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(colorsInt.Action);
     this.setTooltip('');
     this.setHelpUrl('');

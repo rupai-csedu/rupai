@@ -257,7 +257,7 @@ def light_left_white():
 def event_check_loop():
     while True:
         for event in events:
-            sleep(.5)
+            sleep(10)
             print("in event check loop")
             if event=='light_left_white' and check_light_left_white():
                 light_left_white()
