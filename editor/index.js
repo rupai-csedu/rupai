@@ -420,7 +420,7 @@ Code.runJS = function() {
     var allXml = Blockly.Xml.workspaceToDom(Code.workspace);
     console.log(allXml);
 
-    var mainCode = [], eventListeners = [];
+    var mainCode="", eventListeners="";
 
     var xml;
     while(xml = allXml.childNodes.item(0)) {
@@ -438,10 +438,10 @@ Code.runJS = function() {
       //console.log("HEADLESS: "+ c);
 
       if(c.indexOf('add_event')!=-1) {
-        eventListeners.push(c);
+        eventListeners += "\n" + c;
       }
       else {
-        mainCode.push(c);
+        mainCode += "\n" + c;
       }
       headless.dispose();
     }
@@ -450,11 +450,12 @@ Code.runJS = function() {
     console.log(eventListeners);
 
 
-    /*$.post("sendcode.py", {
-        code: codes
+    $.post("sendcode.py", {
+        code: mainCode,
+        event: eventListeners
     }, function (data) {
         //do something
-    })*/
+    })
 };
 
 /**
