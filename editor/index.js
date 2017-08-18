@@ -203,7 +203,7 @@ Code.LANG = Code.getLang();
  * List of tab names.
  * @private
  */
-Code.TABS_ = ['blocks', 'code', 'example'];
+Code.TABS_ = ['blocks', 'code', 'camera'];
 
 Code.selected = 'blocks';
 
@@ -251,8 +251,9 @@ Code.renderContent = function() {
     }
   }
 
-  else if (content.id == 'content_example') {
-    content.textContent = "There should be examples and inspirations";
+  else if (content.id == 'content_camera') {
+    // content.textContent = "There should be examples and inspirations";
+    content.innerHTML = "<iframe src='http://172.24.1.1:9970/html' frameBorder='0' style='width: " + content.style.width  +"; height: "+ content.style.height +"' ></iframe>"
   }
 };
 
@@ -452,7 +453,7 @@ Code.runJS = function() {
 
     $.post("sendcode.py", {
         code: mainCode,
-        event: eventListeners
+        event: eventListeners===""? "pass\n" : eventListeners
     }, function (data) {
         //do something
     })
