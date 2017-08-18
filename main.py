@@ -266,10 +266,10 @@ def add_event(type):
     events.append(type)
 
 
-try:
-    thread.start_new_thread(event_check_loop, ())
-except:
-    print("Error: unable to start thread")
+#try:
+#    thread.start_new_thread(event_check_loop, ())
+#except:
+#    print("Error: unable to start thread")
 
 
 def light_left_white():
