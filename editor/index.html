@@ -110,15 +110,30 @@
       <block type="action_go_simple"></block>
       <block type="action_stop"></block>
       <block type="action_turn"></block>
-      <block type="action_say">
 
-        <value name="say_text">
+
+      <block type="show_text">
+
+        <value name="show_text_input">
           <block type="text">
             <field name="TEXT">hello</field>
           </block>
         </value>
 
+        <value name="show_text_column">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="show_text_row">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
       </block>
+
 
     </category>
 
