@@ -25,12 +25,7 @@ cd nanpy-firmware
 
 
 //important::::: 
-template.py permission should be changed
+Test.py permission should be changed
 
 //make it a router!
 https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/
-
-
-//sonar sensor integration with nanpy
-https://www.raspberrypi.org/forums/viewtopic.php?f=37&t=82635
-

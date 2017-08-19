@@ -9,11 +9,9 @@ Blockly.Python['event_voice'] = function(block) {
 
 Blockly.Python['event_light_left'] = function(block) {
   var dropdown = block.getFieldValue('light_left_dropdown');
-  var statements = Blockly.Python.statementToCode(block, 'light_left_statements');
-  
-  var branch= statements;
-  branch = Blockly.Python.addLoopTrap(branch, block.id) ||
-      Blockly.Python.PASS;
+  var branch = Blockly.Python.statementToCode(block, 'light_left_statements');
+
+  branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
   
   var listener= 'add_event(\"'+dropdown+'\")'+'\n';
   var code = 'def '+dropdown+'('+'):'+'\n'+branch+'\n'+listener;
@@ -22,17 +20,23 @@ Blockly.Python['event_light_left'] = function(block) {
 
 
 Blockly.Python['event_light_right'] = function(block) {
-  var dropdown_light_right_dropdown = block.getFieldValue('light_right_dropdown');
-  var statements_light_right_statements = Blockly.Python.statementToCode(block, 'light_right_statements');
-  // TODO: Assemble Python into code variable.
-  var code = '...\n';
+  var dropdown = block.getFieldValue('light_right_dropdown');
+  var branch = Blockly.Python.statementToCode(block, 'light_right_statements');
+
+  branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+
+  var listener= 'add_event(\"'+dropdown+'\")'+'\n';
+  var code = 'def '+dropdown+'('+'):'+'\n'+branch+'\n'+listener;
   return code;
 };
 
 Blockly.Python['event_light_centre'] = function(block) {
-  var dropdown_light_centre_dropdown = block.getFieldValue('light_centre_dropdown');
-  var statements_light_centre_statements = Blockly.Python.statementToCode(block, 'light_centre_statements');
-  // TODO: Assemble Python into code variable.
-  var code = '...\n';
+  var dropdown = block.getFieldValue('light_centre_dropdown');
+  var branch = Blockly.Python.statementToCode(block, 'light_centre_statements');
+
+  branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+
+  var listener= 'add_event(\"'+dropdown+'\")'+'\n';
+  var code = 'def '+dropdown+'('+'):'+'\n'+branch+'\n'+listener;
   return code;
 };

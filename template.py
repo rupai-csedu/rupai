@@ -312,30 +312,77 @@ def clear_display():
 
 #This block is for event_management
 
-events= []
+events = []
 
 
 def check_light_left_white():
-    print("checking left white")
+    #print("checking left white")
     return leftIsWhite()
 
 def light_left_white():
     print("dummy function called")
 
 
+def check_light_right_white():
+    return leftIsWhite()
+
+def light_right_white():
+    print("dummy function called")
+
+
+def check_light_centre_white():
+    return leftIsWhite()
+
+def light_centre_white():
+    print("dummy function called")
+
+
+def check_light_left_black():
+    #print("checking left white")
+    return not leftIsWhite()
+
+def light_left_black():
+    print("dummy function called")
+
+
+def check_light_right_black():
+    return not leftIsWhite()
+
+def light_right_black():
+    print("dummy function called")
+
+
+def check_light_centre_black():
+    return not leftIsWhite()
+
+def light_centre_black():
+    print("dummy function called")
+
+
+
 def event_check_loop():
     while True:
         for event in events:
             sleep(0.1)
-            if event=='light_left_white' and check_light_left_white():
+            if event == 'light_left_white' and check_light_left_white():
                 light_left_white()
+            elif event == 'light_right_white' and check_light_right_white():
+                light_right_white()
+            elif event == 'light_centre_white' and check_light_centre_white():
+                light_centre_white()
+            elif event == 'light_left_black' and check_light_left_black():
+                light_left_black()
+            elif event == 'light_right_black' and check_light_right_black():
+                light_right_black()
+            elif event == 'light_centre_black' and check_light_centre_black():
+                light_centre_black()
 
 def add_event(type):
     events.append(type)
 
 
 try:
-    thread.start_new_thread(event_check_loop, ())
+    x = thread.start_new_thread(event_check_loop, ())
 except:
     print("Error: unable to start thread")
 
