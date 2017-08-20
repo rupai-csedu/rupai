@@ -51,9 +51,42 @@ font = ImageFont.load_default()
 
 
 def text(text_to_display, row, col):
-    draw.text((col, row), text_to_display, font=font, fill=255)
+    draw.text((col, row*10), text_to_display, font=font, fill=255)
     disp.image(image)
     disp.display()
 
-text('hello', 0, 0)
-text('world', 12, 15)
+
+def clear():
+    # Draw a black filled box to clear the image.
+    draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    disp.image(image)
+    disp.display()
+
+
+def line(x0, y0, x1, y1):
+    # Draw a black filled box to clear the image.
+    draw.line((x0, y0, x1, y1), fill=255)
+    disp.image(image)
+    disp.display()
+
+
+def rectangle(x0, y0, x1, y1):
+    draw.rectangle((x0, y0, x1, y1), outline=255, fill=0)
+    disp.image(image)
+    disp.display()
+
+
+def ellipse(x0, y0, x1, y1):
+    draw.ellipse((x0, y0, x1, y1), outline=255, fill=0)
+    disp.image(image)
+    disp.display()
+
+
+def point(x0, y0):
+    draw.ellipse((x0, y0), fill=0)
+    disp.image(image)
+    disp.display()
+
+
+
+
