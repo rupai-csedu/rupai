@@ -21,9 +21,9 @@ speed_left= 11
 rot_right_1= 8  
 rot_right_2= 9  
 rot_left_1= 12  
-rot_left_2= 13
+rot_left_2= 2
 
-trigpin=2
+trigpin=13
 echopin=3
 
 SS2_LEFT_IN=7
