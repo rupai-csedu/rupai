@@ -209,3 +209,11 @@ button {
 .run {
   background-position: -42px 0px;
 }
+
+.open {
+  background-position: -63px 0px;
+}
+
+.save {
+  background-position: -84px 0px;
+}

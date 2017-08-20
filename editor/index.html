@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="style.css">
 
   <script src="/storage.js"></script>
+  <script src="Blob.js"></script>
+  <script src="FileSaver.min.js"></script>
 
   <script>
     // global colors
@@ -70,6 +72,13 @@
             <td class="tabmin">&nbsp;</td>
             <td id="tab_camera" class="taboff">Feed</td>
             <td class="tabmax">
+              <button id="openButton" class="notext" title="...">
+                <img src='../media/1x1.gif' class="open icon21">
+                <input style="display: none" type="file" accept=".rup" onchange='openFile(event)' id="picker">
+              </button>
+              <button id="saveButton" class="notext" title="...">
+                <img src='../media/1x1.gif' class="save icon21">
+              </button>
               <button id="trashButton" class="notext" title="...">
                 <img src='../media/1x1.gif' class="trash icon21">
               </button>

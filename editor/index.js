@@ -320,9 +320,21 @@ Code.init = function() {
 
   Code.tabClick(Code.selected);
 
-  Code.bindClick('trashButton',
-      function() {Code.discard(); Code.renderContent();});
+
+  Code.bindClick('openButton', function () {
+    document.getElementById('picker').click();
+  });
+
+  Code.bindClick('saveButton', function () {
+    var xml = Blockly.Xml.workspaceToDom(Code.workspace);
+    var text = Blockly.Xml.domToText(xml);
+    saveAs(new Blob([text], {type: "text/plain;charset=utf-8;"}), "main.rup");
+  });
+  Code.bindClick('trashButton', function() {Code.discard(); Code.renderContent();});
   Code.bindClick('runButton', Code.runJS);
+
+
+
   // Disable the link button if page isn't backed by App Engine storage.
   var linkButton = document.getElementById('linkButton');
   if ('BlocklyStorage' in window) {
@@ -354,6 +366,20 @@ Code.init = function() {
         document.getElementsByClassName('blocklyFlyoutBackground')[0].style.fill = colorsInt[primaryEvent.newValue];
     }
   });
+
+  window.openFile = function(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function(){
+      var text = reader.result;
+      console.log(text);
+      var workspace = Code.workspace;
+      var xml = Blockly.Xml.textToDom(text);
+      Blockly.Xml.domToWorkspace(xml, workspace);
+    };
+    reader.readAsText(input.files[0]);
+  };
+
 
   // Lazy-load the syntax-highlighting.
   window.setTimeout(Code.importPrettify, 1);
@@ -399,6 +425,9 @@ Code.initLanguage = function() {
   // document.getElementById('title').textContent = MSG['title'];
   document.getElementById('tab_blocks').textContent = MSG['blocks'];
 
+
+  document.getElementById('openButton').title = MSG['openTooltip'];
+  document.getElementById('saveButton').title = MSG['saveTooltip'];
   document.getElementById('linkButton').title = MSG['linkTooltip'];
   document.getElementById('runButton').title = MSG['runTooltip'];
   document.getElementById('trashButton').title = MSG['trashTooltip'];
