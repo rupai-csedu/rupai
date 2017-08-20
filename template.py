@@ -21,9 +21,9 @@ speed_left= 11
 rot_right_1= 8  
 rot_right_2= 9  
 rot_left_1= 12  
-rot_left_2= 2
+rot_left_2= 13
 
-trigpin=13
+trigpin=2
 echopin=3
 
 SS2_LEFT_IN=7
@@ -69,7 +69,7 @@ def wait(time):
     sleep(time/1000)
 
 def obstacleDetected():
-    
+    sleep(.1)
     distance = m.getMeasure(trigpin, echopin)
     while distance<0:
         distance = m.getMeasure(trigpin, echopin)
