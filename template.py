@@ -69,10 +69,13 @@ def wait(time):
     sleep(time/1000)
 
 def obstacleDetected():
-    print("in sonar check")
+    
     distance = m.getMeasure(trigpin, echopin)
     while distance<0:
         distance = m.getMeasure(trigpin, echopin)
+
+    print(distance)
+
     if distance>0 and distance<10:
         print(distance)
         print("Obstacle Detected")
