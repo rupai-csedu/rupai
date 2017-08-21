@@ -321,20 +321,29 @@ def line(x0, y0, x1, y1):
     disp.display()
 
 
-def rectangle(x0, y0, x1, y1):
-    draw.rectangle((x0, y0, x1, y1), outline=255, fill=0)
+def rectangle(x0, y0, x1, y1, fill):
+    if fill:
+        fill = 255
+    else:
+        fill = 0
+
+    draw.rectangle((x0, y0, x1, y1), outline=255, fill=fill)
     disp.image(image)
     disp.display()
 
 
-def ellipse(x0, y0, x1, y1):
-    draw.ellipse((x0, y0, x1, y1), outline=255, fill=0)
+def ellipse(x0, y0, x1, y1, fill):
+    if fill:
+        fill = 255
+    else:
+        fill = 0
+    draw.ellipse((x0, y0, x1, y1), outline=255, fill=fill)
     disp.image(image)
     disp.display()
 
 
 def point(x0, y0):
-    draw.ellipse((x0, y0), fill=0)
+    draw.point((x0, y0), fill=255)
     disp.image(image)
     disp.display()
 
