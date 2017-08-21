@@ -380,6 +380,10 @@ Code.init = function() {
     reader.readAsText(input.files[0]);
   };
 
+  // load main
+  var xmlMain = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="start" id="7EvFF1-8pCJ,zxF,w].K" deletable="false" x="363" y="63"></block></xml>');
+  Blockly.Xml.domToWorkspace(xmlMain, Code.workspace);
+
 
   // Lazy-load the syntax-highlighting.
   window.setTimeout(Code.importPrettify, 1);

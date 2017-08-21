@@ -3,9 +3,9 @@
 Blockly.Blocks['start'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("start");
+        .appendField("start main program");
     this.setNextStatement(true, null);
-    this.setColour(0);
+    this.setColour("#000000");
     this.setTooltip('');
     this.setHelpUrl('');
     this.setDeletable(false);
@@ -13,8 +13,7 @@ Blockly.Blocks['start'] = {
 };
 
 
-Blockly.JavaScript['start'] = function(block) {
-  
+Blockly.Python['start'] = function(block) {
   var code = '';
   return code;
 };
