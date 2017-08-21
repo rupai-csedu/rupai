@@ -415,6 +415,4 @@ try:
 except:
     print("Error: unable to start thread")
 
-while True:
-    obstacleDetected()
 

@@ -39,7 +39,9 @@
   <script src="vpl/block_control.js"></script>
   <script src="vpl/code_event.js"></script>
   <script src="vpl/block_event.js"></script>
-  <script src="vpl/color.js"></script>
+  <script src="vpl/other.js"></script>
+  <script src="vpl/code_thread.js"></script>
+  <script src="vpl/block_thread.js"></script>
 
       <!--JS-->
   <script src="jquery-3.2.1.min.js"></script>
@@ -104,6 +106,10 @@
 
   <xml id="toolbox" style="display: none">
     <category name="Action" colour="#D96C00" expanded="true">
+
+      <block type="execute_parallel">
+        <mutation thread="true"></mutation>
+      </block>
 
       <block type="action_test"></block>
       <block type="action_go">
