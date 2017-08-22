@@ -49,14 +49,5 @@ Blockly.Python['action_say'] = function(block) {
   return code;
 };
 
-Blockly.Python['show_text'] = function(block) {
-  var input = Blockly.Python.valueToCode(block, 'show_text_input', Blockly.Python.ORDER_ATOMIC);
-  var column = Blockly.Python.valueToCode(block, 'show_text_column', Blockly.Python.ORDER_ATOMIC);
-  var row = Blockly.Python.valueToCode(block, 'show_text_row', Blockly.Python.ORDER_ATOMIC);
-  
-  var code = 'text('+input+','+row+','+column+')\n';
-  
-  return code;
-};
 
 

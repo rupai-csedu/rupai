@@ -42,6 +42,8 @@
   <script src="vpl/other.js"></script>
   <script src="vpl/code_thread.js"></script>
   <script src="vpl/block_thread.js"></script>
+  <script src="vpl/code_display.js"></script>
+  <script src="vpl/block_display.js"></script>
 
       <!--JS-->
   <script src="jquery-3.2.1.min.js"></script>
@@ -107,9 +109,6 @@
   <xml id="toolbox" style="display: none">
     <category name="Action" colour="#D96C00" expanded="true">
 
-      <block type="execute_parallel">
-        <mutation thread="true"></mutation>
-      </block>
 
       <block type="action_test"></block>
 
@@ -128,33 +127,12 @@
       <block type="action_turn"></block>
 
 
-      <block type="show_text">
 
-        <value name="show_text_input">
-          <block type="text">
-            <field name="TEXT">hello</field>
-          </block>
-        </value>
-
-        <value name="show_text_column">
-          <block type="math_number">
-            <field name="NUM">0</field>
-          </block>
-        </value>
-
-        <value name="show_text_row">
-          <block type="math_number">
-            <field name="NUM">0</field>
-          </block>
-        </value>
-
-      </block>
 
 
     </category>
 
     <category name="Control" colour="#5BA45B" >
-      <block type="controls_if"></block>
       <block type="controls_repeat_ext">
         <value name="TIMES">
           <block type="math_number">
@@ -167,15 +145,21 @@
       <block type="control_wait_until"></block>
       <block type="controls_flow_statements"></block>
 
+      <block type="execute_parallel">
+        <mutation thread="true"></mutation>
+      </block>
+
 
     </category>
 
     <category name="Logic" colour="#5A7FA4">
+      <block type="controls_if"></block>
       <block type="logic_compare"></block>
       <block type="logic_operation"></block>
       <block type="logic_negate"></block>
       <block type="logic_boolean"></block>
       <block type="logic_ternary"></block>
+
 
     </category>
 
@@ -416,6 +400,150 @@
       <block type="event_light_centre"></block>
 
     </category>
+
+    <category name="Display">
+
+      <block type="show_text">
+
+        <value name="show_text_input">
+          <block type="text">
+            <field name="TEXT">hello</field>
+          </block>
+        </value>
+
+        <value name="show_text_column">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="show_text_row">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+      </block>
+
+
+      <block type="display_point">
+
+        <value name="point_x">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="point_y">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+
+      </block>
+
+
+      <block type="display_line">
+
+        <value name="line_x0">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="line_y0">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="line_x1">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="line_y1">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+      </block>
+
+      <block type="display_rectangle">
+
+        <value name="rect_x0">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="rect_y0">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="rect_x1">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="rect_y1">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="rect_fill">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+        </value>
+
+      </block>
+
+
+      <block type="display_ellipse">
+
+        <value name="ep_x0">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="ep_y0">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="ep_x1">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="ep_y1">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+
+        <value name="ep_fill">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+        </value>
+
+      </block>
+
+
+    </category>
+
 
     <sp></sp>
     <category name="Variables" colour="#A55B80" custom="VARIABLE"></category>
