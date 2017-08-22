@@ -11,7 +11,7 @@ Blockly.Blocks['show_text'] = {
         .appendField("in column");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(colorsInt.Action);
+    this.setColour(colorsInt.Display);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -24,7 +24,7 @@ Blockly.Blocks['display_clear'] = {
         .appendField("clear display");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(colorsInt.Display);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -53,7 +53,7 @@ Blockly.Blocks['display_line'] = {
         .appendField("y");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(colorsInt.Display);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -84,7 +84,7 @@ Blockly.Blocks['display_rectangle'] = {
         .appendField("fill the rectangle");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(colorsInt.Display);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -117,7 +117,7 @@ Blockly.Blocks['display_ellipse'] = {
         .appendField("fill the ellipse");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(colorsInt.Display);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -137,7 +137,7 @@ Blockly.Blocks['display_point'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(colorsInt.Display);
     this.setTooltip('');
     this.setHelpUrl('');
   }

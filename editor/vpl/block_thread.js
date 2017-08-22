@@ -11,7 +11,7 @@ Blockly.Blocks['execute_parallel'] = {
   
   init: function() {
     this.setHelpUrl('');
-    this.setColour(180);
+    this.setColour(colorsInt.Control);
     this.appendDummyInput()
         .appendField("execute in parallel");
     this.appendStatementInput('Thread1')
@@ -140,7 +140,7 @@ Blockly.Blocks['thread_dummy'] = {
         .appendField("task");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(0);
+    this.setColour(colorsInt.Control);
     this.setTooltip('');
     this.setHelpUrl('');
   }
