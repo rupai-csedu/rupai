@@ -1,7 +1,7 @@
 
 Blockly.Python['execute_parallel'] = function(block) {
 
-  var n = 0;
+  var n = 1;
   var code = '', branchCode, conditionCode;
 
   do {
@@ -14,13 +14,13 @@ except:
 
      */
 
-    branchCode = Blockly.Python.statementToCode(block, 'Thread1' + n) ||
+    branchCode = Blockly.Python.statementToCode(block, 'Thread' + n) ||
         Blockly.Python.PASS;
 
     var branch= Blockly.Python.addLoopTrap(branchCode, block.id) || Blockly.Python.PASS;
-    var thread_start_code= "try:\n"+Blockly.Python.addLoopTrap("thread.start_new_thread(thread_func"+n+", ())", block.id)+"\n";
+    var thread_start_code= "try:\n"+"    thread.start_new_thread(thread_func"+n+", ())"+"\n";
 
-    var xx=Blockly.Python.addLoopTrap("pass", block.id);
+    var xx="    pass\n";
     thread_start_code+= "except:\n"+xx+"\n";
 
 

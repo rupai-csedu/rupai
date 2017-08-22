@@ -15,7 +15,7 @@ Blockly.Blocks['execute_parallel'] = {
     this.appendDummyInput()
         .appendField("execute in parallel");
     this.appendStatementInput('Thread1')
-        .appendField("Block 1");
+        .appendField("Task 1");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setMutator(new Blockly.Mutator(['thread_dummy'
@@ -129,7 +129,7 @@ Blockly.Blocks['execute_parallel'] = {
     for (var i = 1; i <= this.threadCount_; i++) {
 
       this.appendStatementInput('Thread'+i)
-        .appendField("Block "+i);
+        .appendField("Task "+i);
     }
   }
 };
@@ -137,7 +137,7 @@ Blockly.Blocks['execute_parallel'] = {
 Blockly.Blocks['thread_dummy'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("block");
+        .appendField("task");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(0);
