@@ -210,7 +210,7 @@ def move_forward(time):
 
     a.analogWrite(rot_right_1,0)
     a.analogWrite(rot_right_2,rot_right_value)
-
+    print('moving forward work done')
     sleep(0.2*time)
 
 
@@ -356,7 +356,7 @@ events = []
 
 
 def check_light_left_white():
-    #print("checking left white")
+    print("checking left white")
     return leftIsWhite()
 
 def light_left_white():
@@ -402,8 +402,11 @@ def light_centre_black():
 
 def event_check_loop():
     while True:
+        #print('checking event')
+        sleep(.1)
         for event in events:
-            sleep(0.1)
+            #print('checking event in list')
+            #sleep(0.1)
             if event == 'light_left_white' and check_light_left_white():
                 light_left_white()
             elif event == 'light_right_white' and check_light_right_white():
