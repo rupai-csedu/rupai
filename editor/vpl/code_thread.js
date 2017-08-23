@@ -20,7 +20,7 @@ except:
     var branch= Blockly.Python.addLoopTrap(branchCode, block.id) || Blockly.Python.PASS;
     var thread_start_code= "try:\n"+"    thread.start_new_thread(thread_func"+n+", ())"+"\n";
 
-    var xx="    pass\n";
+    var xx="    print(\"Error: unable to start thread\")\n";
     thread_start_code+= "except:\n"+xx+"\n";
 
 

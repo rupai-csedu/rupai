@@ -322,6 +322,7 @@ def line(x0, y0, x1, y1):
 
 
 def rectangle(x0, y0, x1, y1, fill):
+    print('drawing rectangle')
     if fill:
         fill = 255
     else:
@@ -333,6 +334,7 @@ def rectangle(x0, y0, x1, y1, fill):
 
 
 def ellipse(x0, y0, x1, y1, fill):
+    print('drawing ellipse')
     if fill:
         fill = 255
     else:

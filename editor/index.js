@@ -371,6 +371,7 @@ Code.init = function() {
     var input = event.target;
     var reader = new FileReader();
     reader.onload = function(){
+      Code.workspace.clear();
       var text = reader.result;
       console.log(text);
       var workspace = Code.workspace;
@@ -500,6 +501,9 @@ Code.discard = function() {
   if (count < 2 ||
       window.confirm(Blockly.Msg.DELETE_ALL_BLOCKS.replace('%1', count))) {
     Code.workspace.clear();
+    // load main
+    var xmlMain = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="start" id="7EvFF1-8pCJ,zxF,w].K" deletable="false" x="363" y="63"></block></xml>');
+    Blockly.Xml.domToWorkspace(xmlMain, Code.workspace);
     if (window.location.hash) {
       window.location.hash = '';
     }
