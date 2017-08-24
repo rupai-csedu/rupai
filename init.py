@@ -298,7 +298,7 @@ bottom = height-padding
 x = padding
 
 # Load font.
-# font = ImageFont.truetype('pixeled.ttf', 12)
+#font = ImageFont.truetype('pixeled.ttf', 12)
 font = ImageFont.load_default()
 
 
@@ -424,26 +424,12 @@ def add_event(type):
     events.append(type)
 
 
-try:
-    x = thread.start_new_thread(event_check_loop, ())
-except:
-    print("Error: unable to start thread")
+#try:
+#    x = thread.start_new_thread(event_check_loop, ())
+#except:
+#    print("Error: unable to start thread")
+text('1) Connect to Wifi', 1, 10)
+text('\"RUPAI\"', 2, 40)
+text('2) From your Browser', 4, 10)
+text('172.24.1.1:9980', 5, 20)
 
-
-
-def light_centre_white():
-  clear()
-  text('hello hand',0,0)
-
-add_event("light_centre_white")
-
-def light_centre_black():
-  clear()
-  text('hello nothing',0,0)
-
-add_event("light_centre_black")
-
-
-go("forward", 100)
-
-stop()

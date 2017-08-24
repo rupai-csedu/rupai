@@ -104,6 +104,7 @@ try:
 	
 	#Wait forever for incoming htto requests
 	server.serve_forever()
+	subprocess.call("/home/pi/rupai/init.py", shell=True)
 
 except KeyboardInterrupt:
 	print('^C received, shutting down the web server')
