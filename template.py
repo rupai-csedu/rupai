@@ -56,14 +56,14 @@ except:
     print("Failed to connect")
 
   
-a.pinMode(speed_left,a.OUTPUT)
-a.pinMode(speed_right,a.OUTPUT)
+#a.pinMode(speed_left,a.OUTPUT)
+#a.pinMode(speed_right,a.OUTPUT)
     
-a.pinMode(rot_left_1,a.OUTPUT)
-a.pinMode(rot_left_2,a.OUTPUT)
+#a.pinMode(rot_left_1,a.OUTPUT)
+#a.pinMode(rot_left_2,a.OUTPUT)
     
-a.pinMode(rot_right_1,a.OUTPUT)
-a.pinMode(rot_right_2,a.OUTPUT)
+#a.pinMode(rot_right_1,a.OUTPUT)
+#a.pinMode(rot_right_2,a.OUTPUT)
 
 
 # obstacleDetected()
@@ -75,7 +75,7 @@ a.pinMode(rot_right_2,a.OUTPUT)
 
 #voice detection
 
-MODELDIR = "model"
+MODELDIR = "voice"
 DATADIR = "data"
 
 # Create a decoder with certain model
