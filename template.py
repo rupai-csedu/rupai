@@ -96,7 +96,7 @@ def detect_voice():
     decoder.start_utt()
 
     stream.start_stream()
-    for i in range(0, int(16000 / 1024 * 1)):
+    for i in range(0, int(16000 / 1024 * .5)):
         buf = stream.read(1024)
         if buf:
             decoder.process_raw(buf, False, False)
@@ -106,9 +106,12 @@ def detect_voice():
     stream.stop_stream()
     hypothesis = decoder.hyp()
     logmath = decoder.get_logmath()
-    print('Best hypothesis: ', hypothesis.hypstr)
 
-    return hypothesis.hypstr
+    if hypothesis == None:
+        return ""
+    else:
+        print('Best hypothesis: ', hypothesis.hypstr)
+        return hypothesis.hypstr
 
 
 
