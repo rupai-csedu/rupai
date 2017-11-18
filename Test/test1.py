@@ -3,7 +3,7 @@ from os import environ, path
 from pocketsphinx.pocketsphinx import *
 from sphinxbase.sphinxbase import *
 
-import pyaudio
+#import pyaudio
 
 
 MODELDIR = "model"
@@ -29,10 +29,10 @@ decoder = Decoder(config)
 #decoder.set_kws('keyphrase', path.join(MODELDIR, 'phrase'))
 #decoder.set_search('keyphrase')
 decoder.start_utt()
-#stream = open(path.join(DATADIR, 'left1.wav'), 'rb')
+stream = open(path.join(DATADIR, 'left1.wav'), 'rb')
 
-p = pyaudio.PyAudio()
-stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
+#p = pyaudio.PyAudio()
+#stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
 #stream.start_stream()
 
 for i in range(100):
@@ -47,4 +47,7 @@ hypothesis = decoder.hyp()
 logmath = decoder.get_logmath()
 print ('Best hypothesis: ', hypothesis.hypstr)
 
-print ('Best hypothesis segments: ', [seg.word for seg in decoder.seg()])
+#if hypothesis.hypstr=='LEFT':
+#  print("LEFT found")
+
+#print ('Best hypothesis segments: ', [seg.word for seg in decoder.seg()])

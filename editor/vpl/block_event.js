@@ -2,7 +2,7 @@ Blockly.Blocks['event_voice'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("When voice input is")
-        .appendField(new Blockly.FieldDropdown([["stop","voice_stop"], ["go left","voice_left"], ["go right","voice_right"]]), "voice_command");
+        .appendField(new Blockly.FieldDropdown([["go","voice_go"], ["left","voice_left"], ["right","voice_right"],["stop","voice_stop"]]), "voice_command");
     this.appendStatementInput("voice_statements")
         .setCheck(null);
     //this.setPreviousStatement(true, null);

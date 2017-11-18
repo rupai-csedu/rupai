@@ -1,8 +1,11 @@
 Blockly.Python['event_voice'] = function(block) {
-  var dropdown_voice_command = block.getFieldValue('voice_command');
-  var statements_voice_statements = Blockly.Python.statementToCode(block, 'voice_statements');
-  // TODO: Assemble Python into code variable.
-  var code = '...\n';
+  var dropdown = block.getFieldValue('voice_command');
+  var branch = Blockly.Python.statementToCode(block, 'voice_statements');
+
+  branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+
+  var listener= 'add_event(\"'+dropdown+'\")'+'\n';
+  var code = 'def '+dropdown+'('+'):'+'\n'+branch+'\n'+listener;
   return code;
 };
 
