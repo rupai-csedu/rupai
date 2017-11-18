@@ -3,6 +3,8 @@ from os import environ, path
 from pocketsphinx.pocketsphinx import *
 from sphinxbase.sphinxbase import *
 
+import pyaudio
+
 
 MODELDIR = "model"
 DATADIR = "data"
@@ -27,13 +29,13 @@ decoder = Decoder(config)
 #decoder.set_kws('keyphrase', path.join(MODELDIR, 'phrase'))
 #decoder.set_search('keyphrase')
 decoder.start_utt()
-stream = open(path.join(DATADIR, 'left1.wav'), 'rb')
+#stream = open(path.join(DATADIR, 'left1.wav'), 'rb')
 
-#p = pyaudio.PyAudio()
-# stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
-# stream.start_stream()
+p = pyaudio.PyAudio()
+stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
+#stream.start_stream()
 
-while True:
+for i in range(100):
   buf = stream.read(1024)
   if buf:
     decoder.process_raw(buf, False, False)

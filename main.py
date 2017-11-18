@@ -430,20 +430,25 @@ except:
     print("Error: unable to start thread")
 
 
-
-def light_centre_white():
-  clear()
-  text('hello hand',0,0)
-
-add_event("light_centre_white")
-
-def light_centre_black():
-  clear()
-  text('hello nothing',0,0)
-
-add_event("light_centre_black")
+pass
 
 
-go("forward", 100)
+mylist = None
+i = None
+
+
+mylist = ['1', '2', '3']
+def thread_func1():
+  for i in mylist:
+    clear()
+    text(i,0,0)
+    wait(5000)
+
+try:
+    thread.start_new_thread(thread_func1, ())
+except:
+    print("Error: unable to start thread")
+
+go("forward", 50)
 
 stop()
