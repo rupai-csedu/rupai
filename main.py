@@ -12,6 +12,14 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
+from os import environ, path
+
+from pocketsphinx.pocketsphinx import *
+from sphinxbase.sphinxbase import *
+
+import pyaudio
+
+
 
 
 #This block is for arduino codes
@@ -48,14 +56,14 @@ except:
     print("Failed to connect")
 
   
-a.pinMode(speed_left,a.OUTPUT)
-a.pinMode(speed_right,a.OUTPUT)
+#a.pinMode(speed_left,a.OUTPUT)
+#a.pinMode(speed_right,a.OUTPUT)
     
-a.pinMode(rot_left_1,a.OUTPUT)
-a.pinMode(rot_left_2,a.OUTPUT)
+#a.pinMode(rot_left_1,a.OUTPUT)
+#a.pinMode(rot_left_2,a.OUTPUT)
     
-a.pinMode(rot_right_1,a.OUTPUT)
-a.pinMode(rot_right_2,a.OUTPUT)
+#a.pinMode(rot_right_1,a.OUTPUT)
+#a.pinMode(rot_right_2,a.OUTPUT)
 
 
 # obstacleDetected()
@@ -63,6 +71,49 @@ a.pinMode(rot_right_2,a.OUTPUT)
 # getColorFromSensor()
 # getDistanceFromSensor()
 # say("text")
+
+
+#voice detection
+
+MODELDIR = "voice"
+DATADIR = "data"
+
+# Create a decoder with certain model
+config = Decoder.default_config()
+config.set_string('-hmm', path.join(MODELDIR, 'en-us'))
+config.set_string('-lm', path.join(MODELDIR, 'small.lm'))
+config.set_string('-dict', path.join(MODELDIR, 'small.dic'))
+config.set_string('-logfn', '/dev/null')
+
+p = pyaudio.PyAudio()
+stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
+
+
+def detect_voice():
+
+    # Decode streaming data.
+    decoder = Decoder(config)
+    decoder.start_utt()
+
+    stream.start_stream()
+    for i in range(0, int(16000 / 1024 * .5)):
+        buf = stream.read(1024)
+        if buf:
+            decoder.process_raw(buf, False, False)
+        else:
+            break
+    decoder.end_utt()
+    stream.stop_stream()
+    hypothesis = decoder.hyp()
+    logmath = decoder.get_logmath()
+
+    if hypothesis == None:
+        return ""
+    else:
+        print('Best hypothesis: ', hypothesis.hypstr)
+        return hypothesis.hypstr
+
+
 
 
 def wait(time):
@@ -240,14 +291,14 @@ def turn_left():
     sleep(0.4)
 
 def stop():
-    a.analogWrite(speed_left,0)
-    a.analogWrite(speed_right,0)
+    #a.analogWrite(speed_left,0)
+    #a.analogWrite(speed_right,0)
 				
-    a.analogWrite(rot_left_1,0)
-    a.analogWrite(rot_left_2,0)
+    #a.analogWrite(rot_left_1,0)
+    #a.analogWrite(rot_left_2,0)
 
-    a.analogWrite(rot_right_1,0)
-    a.analogWrite(rot_right_2,0)
+    #a.analogWrite(rot_right_1,0)
+    #a.analogWrite(rot_right_2,0)
 			
     sleep(1)
 	
@@ -398,6 +449,30 @@ def check_light_centre_black():
 def light_centre_black():
     print("dummy function called")
 
+def check_voice_go():
+    return detect_voice() == "GO"
+
+def voice_go():
+    print("dummy function called")
+
+def check_voice_left():
+    return detect_voice() == "LEFT"
+
+def voice_left():
+    print("dummy function called")
+
+def check_voice_right():
+    return detect_voice() == "RIGHT"
+
+def voice_right():
+    print("dummy function called")
+
+def check_voice_stop():
+    return detect_voice() == "STOP"
+
+def voice_stop():
+    print("dummy function called")
+
 
 
 def event_check_loop():
@@ -419,6 +494,18 @@ def event_check_loop():
                 light_right_black()
             elif event == 'light_centre_black' and check_light_centre_black():
                 light_centre_black()
+            elif event == 'voice_go' and check_voice_go():
+                print("voice go dectected")
+                voice_go()
+            elif event == 'voice_left' and check_voice_left():
+                print("voice left dectected")
+                voice_left()
+            elif event == 'voice_right' and check_voice_right():
+                print("voice right dectected")
+                voice_right()
+            elif event == 'voice_stop' and check_voice_stop():
+                print("voice stop dectected")
+                voice_stop()
 
 def add_event(type):
     events.append(type)
@@ -430,25 +517,15 @@ except:
     print("Error: unable to start thread")
 
 
-pass
+
+def voice_go():
+  pass
+
+add_event("voice_go")
 
 
-mylist = None
-i = None
 
-
-mylist = ['1', '2', '3']
-def thread_func1():
-  for i in mylist:
-    clear()
-    text(i,0,0)
-    wait(5000)
-
-try:
-    thread.start_new_thread(thread_func1, ())
-except:
-    print("Error: unable to start thread")
-
-go("forward", 50)
+while True:
+  pass
 
 stop()
