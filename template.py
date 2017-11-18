@@ -85,6 +85,8 @@ config.set_string('-lm', path.join(MODELDIR, 'small.lm'))
 config.set_string('-dict', path.join(MODELDIR, 'small.dic'))
 config.set_string('-logfn', '/dev/null')
 
+p = pyaudio.PyAudio()
+stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
 
 
 def detect_voice():
@@ -92,9 +94,6 @@ def detect_voice():
     # Decode streaming data.
     decoder = Decoder(config)
     decoder.start_utt()
-
-    p = pyaudio.PyAudio()
-    stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
 
     for i in range(0, int(16000 / 1024 * 1)):
         buf = stream.read(1024)
