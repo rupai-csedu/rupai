@@ -95,6 +95,7 @@ def detect_voice():
     decoder = Decoder(config)
     decoder.start_utt()
 
+    stream.start_stream()
     for i in range(0, int(16000 / 1024 * 1)):
         buf = stream.read(1024)
         if buf:
@@ -102,7 +103,7 @@ def detect_voice():
         else:
             break
     decoder.end_utt()
-
+    stream.stop_stream()
     hypothesis = decoder.hyp()
     logmath = decoder.get_logmath()
     print('Best hypothesis: ', hypothesis.hypstr)
