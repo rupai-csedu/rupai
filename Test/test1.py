@@ -35,6 +35,8 @@ stream = open(path.join(DATADIR, 'left1.wav'), 'rb')
 #stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
 #stream.start_stream()
 
+#buf = []
+
 for i in range(100):
   buf = stream.read(1024)
   if buf:
