@@ -96,7 +96,7 @@ def detect_voice():
     decoder.start_utt()
 
     stream.start_stream()
-    for i in range(0, int(16000 / 1024 * .5)):
+    for i in range(0, int(16000 / 1024 * 2)):
         buf = stream.read(1024)
         if buf:
             decoder.process_raw(buf, False, False)
