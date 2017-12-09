@@ -88,8 +88,41 @@ config.set_string('-logfn', '/dev/null')
 p = pyaudio.PyAudio()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
 
+buf= []
 
 def detect_voice():
+    global buf
+    stream.start_stream()
+
+    temp_buf= stream.read(1024)
+
+    if temp_buf:
+        buf.append(temp_buf)
+
+    if len(buf)>35:
+        del buf[0]
+
+    stream.stop_stream()
+
+    # Decode streaming data.
+    decoder = Decoder(config)
+    decoder.start_utt()
+
+    for i in range(0, len(buf)):
+        decoder.process_raw(buf, False, False)
+
+    decoder.end_utt()
+
+    hypothesis = decoder.hyp()
+
+    if hypothesis == None:
+        return ""
+    else:
+        print('Best hypothesis: ', hypothesis.hypstr)
+        return hypothesis.hypstr
+
+
+def detect_voice_old():
 
     # Decode streaming data.
     decoder = Decoder(config)
@@ -105,13 +138,13 @@ def detect_voice():
     decoder.end_utt()
     stream.stop_stream()
     hypothesis = decoder.hyp()
-    logmath = decoder.get_logmath()
 
     if hypothesis == None:
         return ""
     else:
         print('Best hypothesis: ', hypothesis.hypstr)
         return hypothesis.hypstr
+
 
 
 
@@ -479,6 +512,7 @@ def event_check_loop():
     while True:
         #print('checking event')
         sleep(.1)
+        global buf
         for event in events:
             #print('checking event in list')
             #sleep(0.1)
@@ -495,15 +529,19 @@ def event_check_loop():
             elif event == 'light_centre_black' and check_light_centre_black():
                 light_centre_black()
             elif event == 'voice_go' and check_voice_go():
+                del buf[:]
                 print("voice go dectected")
                 voice_go()
             elif event == 'voice_left' and check_voice_left():
+                del buf[:]
                 print("voice left dectected")
                 voice_left()
             elif event == 'voice_right' and check_voice_right():
+                del buf[:]
                 print("voice right dectected")
                 voice_right()
             elif event == 'voice_stop' and check_voice_stop():
+                del buf[:]
                 print("voice stop dectected")
                 voice_stop()
 
