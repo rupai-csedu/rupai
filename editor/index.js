@@ -32,7 +32,7 @@ var Code = {};
  * Lookup for names of supported languages.  Keys should be in ISO 639 format.
  */
 Code.LANGUAGE_NAME = {
-  'en': 'English'
+  'en': 'English', 'bn': 'Bengali'
 };
 
 /**
