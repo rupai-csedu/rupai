@@ -88,9 +88,9 @@ config.set_string('-logfn', '/dev/null')
 p = pyaudio.PyAudio()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
 
-buf= []
+#buf= []
 
-def detect_voice():
+def detect_voice_temp():
     global buf
     stream.start_stream()
 
@@ -122,7 +122,7 @@ def detect_voice():
         return hypothesis.hypstr
 
 
-def detect_voice_old():
+def detect_voice():
 
     # Decode streaming data.
     decoder = Decoder(config)
@@ -529,19 +529,18 @@ def event_check_loop():
             elif event == 'light_centre_black' and check_light_centre_black():
                 light_centre_black()
             elif event == 'voice_go' and check_voice_go():
-                del buf[:]
                 print("voice go dectected")
                 voice_go()
             elif event == 'voice_left' and check_voice_left():
-                del buf[:]
+                #del buf[:]
                 print("voice left dectected")
                 voice_left()
             elif event == 'voice_right' and check_voice_right():
-                del buf[:]
+                #del buf[:]
                 print("voice right dectected")
                 voice_right()
             elif event == 'voice_stop' and check_voice_stop():
-                del buf[:]
+                #del buf[:]
                 print("voice stop dectected")
                 voice_stop()
 
