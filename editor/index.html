@@ -5,6 +5,7 @@
   <meta name="google" value="notranslate">
   <title>Rupai</title>
 
+  <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 
   <script src="/storage.js"></script>
@@ -21,63 +22,123 @@
       Text: "#5BA48B", //UNUSED
       Lists: "#745BA5", //UNUSED
       Color: "#E69900",
-      Sensor: "#A1A128",
-      Event: "#287AA1",
+      Sensors: "#A1A128",
+      Events: "#287AA1",
       Display: "#777777",
       Variables: "#A55B80", //UNUSED
-      Functions: "#995BA5" //UNUSED
+      Functions: "#995BA5", //UNUSED
+
+      // repeat for BN
+      অ্যাকশন: "#D96C00",
+      কন্ট্রোল:"#5BA45B",
+      লজিক: "#5A7FA4",
+      গনিত: "#5A66A4",
+      বাক্য: "#5BA48B",
+      লিস্ট: "#745BA5",
+      সেন্সর: "#E69900",
+      ইভেন্ট: "#287AA1",
+      ডিসপ্লে: "#777777",
+      চলক: "#A55B80",
+      ফাংশন: "#995BA5",
     };
   </script>
 
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
-
   <script src="blockly/python_compressed.js"></script>
 
   <script src="vpl/code_action.js"></script>
   <script src="vpl/block_action.js"></script>
+
   <script src="vpl/code_sensor.js"></script>
   <script src="vpl/block_sensor.js"></script>
+
   <script src="vpl/code_control.js"></script>
   <script src="vpl/block_control.js"></script>
+
   <script src="vpl/code_event.js"></script>
   <script src="vpl/block_event.js"></script>
+
   <script src="vpl/other.js"></script>
+
   <script src="vpl/code_thread.js"></script>
   <script src="vpl/block_thread.js"></script>
+
   <script src="vpl/code_display.js"></script>
   <script src="vpl/block_display.js"></script>
 
       <!--JS-->
   <script src="jquery-3.2.1.min.js"></script>
   <script src="index.js"></script>
+  <script src="bootstrap.min.js"></script>
 
 </head>
 <body>
-  <table width="100%" height="100%">
+  <table width="100%" height="100%" class="">
     <tr class="header">
-      <td>
+      <td class="nearSide">
         <div style="padding: 12px;">
           <img src="img/logo-wide.png" height="35px" style="vertical-align: middle;">
-          <!--<span id="title"></span>-->
-          <span style="margin-left: 5px; font-weight: bold">Visual Programming Editor</span>
+          <span id="title" style="margin-left: 5px; font-weight: bold">Visual Programming Editor</span>
         </div>
       </td>
       <td class="farSide">
-        <a href="#" class="far-item">About</a>
-        <a href="#" class="far-item">Contribute</a>
-        <select id="languageMenu"></select>
+
+        <div>
+          <div id="info" style="margin-right: 10px">
+            <span id="aboutBtn" class="separatorBtn" data-toggle="modal" data-target="#about"></span>
+            <a id="exampleBtn" href="#" class="separatorBtn"></a>
+            <a id="helpBtn" href="#" class="separatorBtn"></a>
+
+            <!-- Modal -->
+            <div class="modal fade" id="about" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">Project Rupai</h5>
+                  </div>
+                  <div class="modal-body">
+                    <p>Initiative of Robotics Lab, Dept. of CSE, University of Dhaka</p>
+                    <p>Financed by Ministry of Education, Govt. of Bangladesh</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#">Donate</a>
+                    <a href="#">Contribute</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+          <div id="settings">
+            <select id="userMenu">
+              <option value="1">Beginner</option>
+              <option value="2">Intermediate</option>
+              <option value="3">Advanced</option>
+            </select>
+
+            <select id="languageMenu"></select>
+          </div>
+        </div>
+
+
       </td>
     </tr>
     <tr class="tabs">
       <td colspan=2>
         <table width="100%">
           <tr id="tabRow" height="1em">
-            <td id="tab_blocks" class="tabon">...</td>
+            <td id="tab_blocks" class="tabon"></td>
             <td class="tabmin">&nbsp;</td>
-            <td id="tab_code" class="taboff">Code</td>
+            <td id="tab_code" class="taboff"></td>
             <td class="tabmin">&nbsp;</td>
-            <td id="tab_camera" class="taboff">Feed</td>
+            <td id="tab_camera" class="taboff"></td>
             <td class="tabmax">
               <button id="openButton" class="notext" title="...">
                 <img src='../media/1x1.gif' class="open icon21">
@@ -101,8 +162,7 @@
       </td>
     </tr>
     <tr>
-      <td height="99%" colspan=2 id="content_area">
-      </td>
+      <td height="99%" colspan=2 id="content_area"></td>
     </tr>
   </table>
   <div id="content_blocks" class="content"></div>
@@ -110,7 +170,7 @@
   <pre id="content_camera" class="content"></pre>
 
   <xml id="toolbox" style="display: none">
-    <category name="Action" colour="#D96C00" expanded="true">
+    <category name="{catAction}" colour="#D96C00" expanded="true">
 
 
       <block type="action_test"></block>
@@ -135,7 +195,7 @@
 
     </category>
 
-    <category name="Control" colour="#5BA45B" >
+    <category name="{catControl}" colour="#5BA45B" >
       <block type="controls_repeat_ext">
         <value name="TIMES">
           <block type="math_number">
@@ -175,7 +235,7 @@
 
     </category>
 
-    <category name="Logic" colour="#5A7FA4">
+    <category name="{catLogic}" colour="#5A7FA4">
       <block type="controls_if"></block>
       <block type="logic_compare"></block>
       <block type="logic_operation"></block>
@@ -273,6 +333,7 @@
       </block>
       <block type="math_random_float"></block>
     </category>
+
     <category name="{catText}" colour="160">
       <block type="text"></block>
       <block type="text_join"></block>
@@ -351,7 +412,6 @@
       </block>
     </category>
 
-
     <category name="{catLists}" colour="#745BA5">
       <block type="lists_create_with">
         <mutation items="0"></mutation>
@@ -405,7 +465,7 @@
     </category>
 
 
-    <category name="Sensor" colour="#A1A128">
+    <category name="{catSensors}" colour="#A1A128">
       <block type="sensor_get_distance"></block>
       <block type="sensor_is_obstacle"></block>
       <block type="sensor_on_track"></block>
@@ -416,7 +476,7 @@
 
     </category>
 
-    <category name="Event" colour="#287AA1">
+    <category name="{catEvents}" colour="#287AA1">
       <block type="event_voice"></block>
       <block type="event_light_left"></block>
       <block type="event_light_right"></block>
@@ -424,7 +484,7 @@
 
     </category>
 
-    <category name="Display" colour="#777777">
+    <category name="{catDisplay}" colour="#777777">
 
       <block type="display_clear">
       </block>
@@ -570,9 +630,9 @@
 
     </category>
 
-
     <sep></sep>
-    <category name="Variables" colour="#A55B80" custom="VARIABLE"></category>
+
+    <category name="{catVariables}" colour="#A55B80" custom="VARIABLE"></category>
 
     <category name="{catFunctions}" colour="#995BA5" custom="PROCEDURE"></category>
   </xml>

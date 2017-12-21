@@ -1,23 +1,40 @@
 var MSG = {
-  title: "Rupai",
-  blocks: "Blocks",
+  title: "Visual Programming Editor",
+
+  tab_blocks: "Blocks",
+  tab_camera: "Feed",
+  tab_code: "Code",
+
+  aboutBtn:"About",
+  exampleBtn:"Example",
+  helpBtn:"Help",
+
+
   openTooltip: 'Open file',
   saveTooltip: 'Save workspace as file',
   linkTooltip: "Save and link to blocks.",
   runTooltip: "Run the program defined by the blocks in the workspace.",
+
+
   badCode: "Program error:\n%1",
   timeout: "Maximum execution iterations exceeded.",
   trashTooltip: "Discard all blocks.",
+
+  catAction: "Action",
+  catControl: "Control",
   catLogic: "Logic",
-  catLoops: "Loops",
   catMath: "Math",
   catText: "Text",
   catLists: "Lists",
-  catColour: "Colour",
+  catSensors: "Sensors",
+  catEvents: "Events",
+  catDisplay: "Display",
   catVariables: "Variables",
   catFunctions: "Functions",
   listVariable: "list",
   textVariable: "text",
+
+
   httpRequestError: "There was a problem with the request.",
   linkAlert: "Share your blocks with this link:\n\n%1",
   hashError: "Sorry, '%1' doesn't correspond with any saved program.",

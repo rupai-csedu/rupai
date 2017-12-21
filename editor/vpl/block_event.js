@@ -7,7 +7,7 @@ Blockly.Blocks['event_voice'] = {
         .setCheck(null);
     //this.setPreviousStatement(true, null);
     //this.setNextStatement(true, null);
-    this.setColour(colorsInt.Event);
+    this.setColour(colorsInt.Events);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -23,7 +23,7 @@ Blockly.Blocks['event_light_left'] = {
         .setCheck(null);
     //this.setPreviousStatement(true, null);
     //this.setNextStatement(true, null);
-    this.setColour(colorsInt.Event);
+    this.setColour(colorsInt.Events);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -38,7 +38,7 @@ Blockly.Blocks['event_light_right'] = {
         .setCheck(null);
     //this.setPreviousStatement(true, null);
     //this.setNextStatement(true, null);
-    this.setColour(colorsInt.Event);
+    this.setColour(colorsInt.Events);
     this.setTooltip('');
     this.setHelpUrl('');
   }
@@ -54,7 +54,7 @@ Blockly.Blocks['event_light_centre'] = {
         .setCheck(null);
     //this.setPreviousStatement(true, null);
     //this.setNextStatement(true, null);
-    this.setColour(colorsInt.Event);
+    this.setColour(colorsInt.Events);
     this.setTooltip('');
     this.setHelpUrl('');
   }

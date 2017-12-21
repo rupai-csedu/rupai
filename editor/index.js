@@ -32,7 +32,7 @@ var Code = {};
  * Lookup for names of supported languages.  Keys should be in ISO 639 format.
  */
 Code.LANGUAGE_NAME = {
-  'en': 'English', 'bn': 'Bengali'
+  'en': 'English', 'bn': 'বাংলা'
 };
 
 /**
@@ -114,15 +114,17 @@ Code.loadBlocks = function(defaultXml) {
  * Save the blocks and reload with a different language.
  */
 Code.changeLanguage = function() {
+
   // Store the blocks for the duration of the reload.
   // This should be skipped for the index page, which has no blocks and does
   // not load Blockly.
   // MSIE 11 does not support sessionStorage on file:// URLs.
-  if (typeof Blockly != 'undefined' && window.sessionStorage) {
+
+  /* if (typeof Blockly != 'undefined' && window.sessionStorage) {
     var xml = Blockly.Xml.workspaceToDom(Code.workspace);
     var text = Blockly.Xml.domToText(xml);
     window.sessionStorage.loadOnceBlocks = text;
-  }
+  } */
 
   var languageMenu = document.getElementById('languageMenu');
   var newLang = encodeURIComponent(
@@ -362,8 +364,11 @@ Code.init = function() {
     //console.log(json);
 
     if (primaryEvent.type == Blockly.Events.UI) {
-      if(primaryEvent.element=='category')
+      if(primaryEvent.element=='category'){
+        //console.log(primaryEvent);
         document.getElementsByClassName('blocklyFlyoutBackground')[0].style.fill = colorsInt[primaryEvent.newValue];
+
+      }
     }
   });
 
@@ -381,13 +386,18 @@ Code.init = function() {
     reader.readAsText(input.files[0]);
   };
 
-  // load main
-  var xmlMain = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="start" id="7EvFF1-8pCJ,zxF,w].K" deletable="false" x="363" y="63"></block></xml>');
-  Blockly.Xml.domToWorkspace(xmlMain, Code.workspace);
+  Code.loadMain();
 
 
   // Lazy-load the syntax-highlighting.
   window.setTimeout(Code.importPrettify, 1);
+};
+
+
+Code.loadMain = function () {
+  // load main
+  var xmlMain = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="start" id="7EvFF1-8pCJ,zxF,w].K" deletable="false" x="363" y="63"></block></xml>');
+  Blockly.Xml.domToWorkspace(xmlMain, Code.workspace);
 };
 
 /**
@@ -426,11 +436,22 @@ Code.initLanguage = function() {
   languageMenu.addEventListener('change', Code.changeLanguage, true);
 
   // Inject language strings.
+
+  // title
   document.title = MSG['title'];
-  // document.getElementById('title').textContent = MSG['title'];
-  document.getElementById('tab_blocks').textContent = MSG['blocks'];
+  document.getElementById('title').textContent = MSG['title'];
 
+  // tabs
+  document.getElementById('tab_blocks').textContent = MSG['tab_blocks'];
+  document.getElementById('tab_code').textContent = MSG['tab_code'];
+  document.getElementById('tab_camera').textContent = MSG['tab_camera'];
 
+  //menus
+  document.getElementById('aboutBtn').innerHTML = MSG['aboutBtn'];
+  document.getElementById('exampleBtn').innerHTML = MSG['exampleBtn'];
+  document.getElementById('helpBtn').innerHTML = MSG['helpBtn'];
+
+  //tooltips
   document.getElementById('openButton').title = MSG['openTooltip'];
   document.getElementById('saveButton').title = MSG['saveTooltip'];
   document.getElementById('linkButton').title = MSG['linkTooltip'];
@@ -501,9 +522,9 @@ Code.discard = function() {
   if (count < 2 ||
       window.confirm(Blockly.Msg.DELETE_ALL_BLOCKS.replace('%1', count))) {
     Code.workspace.clear();
-    // load main
-    var xmlMain = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="start" id="7EvFF1-8pCJ,zxF,w].K" deletable="false" x="363" y="63"></block></xml>');
-    Blockly.Xml.domToWorkspace(xmlMain, Code.workspace);
+
+    Code.loadMain();
+
     if (window.location.hash) {
       window.location.hash = '';
     }
