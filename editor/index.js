@@ -35,6 +35,10 @@ Code.LANGUAGE_NAME = {
   'en': 'English', 'bn': 'বাংলা'
 };
 
+Code.USERS = {
+  'beg':'Beginner', 'int':'Intermediate', 'adv':'Advanced'
+};
+
 /**
  * List of RTL languages.
  */
@@ -69,6 +73,16 @@ Code.getLang = function() {
     lang = 'en';
   }
   return lang;
+};
+
+
+Code.getUser = function() {
+  var u = Code.getStringParamFromUrl('user', '');
+  if (Code.USERS[u] === undefined) {
+    // Default to Advanced.
+    u = 'adv';
+  }
+  return u;
 };
 
 /**
@@ -109,6 +123,24 @@ Code.loadBlocks = function(defaultXml) {
     window.setTimeout(BlocklyStorage.restoreBlocks, 0);
   }
 };
+
+
+Code.changeUser = function () {
+  console.log("working :/");
+  var userMenu = document.getElementById('userMenu');
+  var newUser = encodeURIComponent(userMenu.options[userMenu.selectedIndex].value);
+  var search = window.location.search;
+  if (search.length <= 1) {
+    search = '?user=' + newUser;
+  } else if (search.match(/[?&]user=[^&]*/)) {
+    search = search.replace(/([?&]user=)[^&]*/, '$1' + newUser);
+  } else {
+    search = search.replace(/\?/, '?user=' + newUser + '&');
+  }
+  window.location = window.location.protocol + '//' + window.location.host + window.location.pathname + search;
+};
+
+
 
 /**
  * Save the blocks and reload with a different language.
@@ -201,6 +233,8 @@ Code.getBBox_ = function(element) {
  */
 Code.LANG = Code.getLang();
 
+Code.USER = Code.getUser();
+
 /**
  * List of tab names.
  * @private
@@ -263,6 +297,7 @@ Code.renderContent = function() {
  * Initialize Blockly.  Called on page load.
  */
 Code.init = function() {
+  // lang
   Code.initLanguage();
 
   var rtl = Code.isRtl();
@@ -400,6 +435,33 @@ Code.loadMain = function () {
   Blockly.Xml.domToWorkspace(xmlMain, Code.workspace);
 };
 
+
+Code.initUserMode = function () {
+  console.log(Code.USER);
+  var userMenu = document.getElementById('userMenu');
+  var users = [];
+  for (var usr in Code.USERS) {
+    users.push([Code.USERS[usr], usr]);
+  }
+  userMenu.options.length = 0;
+  for (var i = 0; i < users.length; i++) {
+    var tuple = users[i];
+    var u = tuple[tuple.length - 1];
+    var option = new Option(tuple[0], u);
+    //console.log(u);
+    if (u == Code.USER) {
+      option.selected = true;
+      console.log(option);
+    }
+    userMenu.options.add(option);
+  }
+
+  console.log(userMenu);
+
+  userMenu.addEventListener('change', Code.changeUser, true);
+};
+
+
 /**
  * Initialize the page language.
  */
@@ -430,9 +492,11 @@ Code.initLanguage = function() {
     var option = new Option(tuple[0], lang);
     if (lang == Code.LANG) {
       option.selected = true;
+      console.log(option);
     }
     languageMenu.options.add(option);
   }
+  console.log(languageMenu);
   languageMenu.addEventListener('change', Code.changeLanguage, true);
 
   // Inject language strings.
@@ -536,4 +600,36 @@ document.write('<script src="msg/' + Code.LANG + '.js"></script>\n');
 // Load Blockly's language strings.
 document.write('<script src="blockly/msg/js/' + Code.LANG + '.js"></script>\n');
 
-window.addEventListener('load', Code.init);
+
+function loadBlocks() {
+  // user
+  Code.initUserMode();
+
+  // push blocks
+  var xml;
+  if (window.ActiveXObject) {
+    xml = new ActiveXObject("Microsoft.XMLHTTP");
+  } else {
+    xml = new XMLHttpRequest();
+  }
+  xml.onreadystatechange = function() {
+    if (xml.readyState == 4 && xml.status == 200) {
+      var resp = xml.responseText;
+      //console.log(resp);
+
+      var x = document.createElement('xml');
+      x.setAttribute('id', 'toolbox');
+      x.setAttribute('style', 'display: none');
+      x.innerHTML = resp;
+
+      document.body.appendChild(x);
+      Code.init();
+    }
+  };
+  xml.open("GET", "user_"+Code.USER+".txt", true);
+  xml.send(null);
+}
+
+window.addEventListener('load', loadBlocks);
+
+

@@ -27,7 +27,7 @@ Blockly.Blocks['action_test'] = {
 Blockly.Blocks['action_go'] = {
   init: function() {
 	this.appendDummyInput()
-	.appendField(new Blockly.FieldDropdown([["go forward","forward"], ["go backward","backward"]]), "go_dropdown");
+	.appendField(new Blockly.FieldDropdown([["go forwards","forward"], ["go backwards","backward"]]), "go_dropdown");
     this.appendValueInput("go_steps")
         .setCheck("Number")
         .appendField("steps");
@@ -67,7 +67,7 @@ Blockly.Blocks['action_turn'] = {
 Blockly.Blocks['action_go_simple'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["go forward","forward"], ["go backward","backward"]]), "go_simple_dropdown");
+        .appendField(new Blockly.FieldDropdown([["go forwards","forward"], ["go backwards","backward"]]), "go_simple_dropdown");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(colorsInt.Action);
