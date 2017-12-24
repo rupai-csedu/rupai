@@ -1,7 +1,7 @@
 Blockly.Blocks['sensor_get_distance'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("get distance from sensor");
+        .appendField(MSG.block.sensorDistance);
     this.setOutput(true, "Number");
     this.setColour(colorsInt.Sensors);
     this.setTooltip('');
@@ -12,7 +12,7 @@ Blockly.Blocks['sensor_get_distance'] = {
 Blockly.Blocks['sensor_is_obstacle'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("obstacle detected");
+        .appendField(MSG.block.sensorObstacle);
     this.setOutput(true, "Boolean");
     this.setColour(colorsInt.Sensors);
     this.setTooltip('');
@@ -23,7 +23,7 @@ Blockly.Blocks['sensor_is_obstacle'] = {
 Blockly.Blocks['sensor_on_track'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("on track");
+        .appendField(MSG.block.sensorTrack);
     this.setOutput(true, "Boolean");
     this.setColour(colorsInt.Sensors);
     this.setTooltip('');
@@ -34,7 +34,7 @@ Blockly.Blocks['sensor_on_track'] = {
 Blockly.Blocks['sensor_left_white'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("left is white");
+        .appendField(MSG.block.sensorLeft);
     this.setOutput(true, "Boolean");
     this.setColour(colorsInt.Sensors);
     this.setTooltip('');
@@ -45,7 +45,7 @@ Blockly.Blocks['sensor_left_white'] = {
 Blockly.Blocks['sensor_right_white'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("right is white");
+        .appendField(MSG.block.sensorRight);
     this.setOutput(true, "Boolean");
     this.setColour(colorsInt.Sensors);
     this.setTooltip('');
@@ -56,7 +56,7 @@ Blockly.Blocks['sensor_right_white'] = {
 Blockly.Blocks['sensor_centre_white'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("centre is white");
+        .appendField(MSG.block.sensorCentre);
     this.setOutput(true, "Boolean");
     this.setColour(colorsInt.Sensors);
     this.setTooltip('');

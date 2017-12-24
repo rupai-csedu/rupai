@@ -2,13 +2,13 @@ Blockly.Blocks['show_text'] = {
   init: function() {
     this.appendValueInput("show_text_input")
         .setCheck("String")
-        .appendField("show text");
+        .appendField(MSG.block.displayText);
     this.appendValueInput("show_text_row")
         .setCheck("Number")
-        .appendField("in row");
+        .appendField(MSG.block.row);
     this.appendValueInput("show_text_column")
         .setCheck("Number")
-        .appendField("in column");
+        .appendField(MSG.block.col);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(colorsInt.Display);
@@ -21,7 +21,7 @@ Blockly.Blocks['show_text'] = {
 Blockly.Blocks['display_clear'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("clear display");
+        .appendField(MSG.block.displayClear);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(colorsInt.Display);
@@ -34,10 +34,10 @@ Blockly.Blocks['display_clear'] = {
 Blockly.Blocks['display_line'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("draw a line");
+        .appendField(MSG.block.displayLine);
     this.appendValueInput("line_x0")
         .setCheck("Number")
-        .appendField("from")
+        .appendField(MSG.block.from)
         .appendField("           x");
     this.appendValueInput("line_y0")
         .setCheck("Number")
@@ -45,7 +45,7 @@ Blockly.Blocks['display_line'] = {
         .appendField("y");
     this.appendValueInput("line_x1")
         .setCheck("Number")
-        .appendField("to")
+        .appendField(MSG.block.to)
         .appendField("               x");
     this.appendValueInput("line_y1")
         .setCheck("Number")
@@ -62,10 +62,10 @@ Blockly.Blocks['display_line'] = {
 Blockly.Blocks['display_rectangle'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("draw rectangle");
+        .appendField(MSG.block.displayRectangle);
     this.appendValueInput("rect_x0")
         .setCheck("Number")
-        .appendField("from")
+        .appendField(MSG.block.from)
         .appendField("              x");
     this.appendValueInput("rect_y0")
         .setCheck("Number")
@@ -73,7 +73,7 @@ Blockly.Blocks['display_rectangle'] = {
         .appendField("y");
     this.appendValueInput("rect_x1")
         .setCheck("Number")
-        .appendField("to")
+        .appendField(MSG.block.to)
         .appendField("                  x");
     this.appendValueInput("rect_y1")
         .setCheck("Number")
@@ -81,7 +81,7 @@ Blockly.Blocks['display_rectangle'] = {
         .appendField("y");
     this.appendValueInput("rect_fill")
         .setCheck("Boolean")
-        .appendField("fill the rectangle");
+        .appendField(MSG.block.displayRectangleFill);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(colorsInt.Display);
@@ -95,10 +95,10 @@ Blockly.Blocks['display_rectangle'] = {
 Blockly.Blocks['display_ellipse'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("draw ellipse");
+        .appendField(MSG.block.displayEllipse);
     this.appendValueInput("ep_x0")
         .setCheck("Number")
-        .appendField("from")
+        .appendField(MSG.block.from)
         .appendField("              x");
     this.appendValueInput("ep_y0")
         .setCheck("Number")
@@ -106,7 +106,7 @@ Blockly.Blocks['display_ellipse'] = {
         .appendField("y");
     this.appendValueInput("ep_x1")
         .setCheck("Number")
-        .appendField("to")
+        .appendField(MSG.block.to)
         .appendField("                  x");
     this.appendValueInput("ep_y1")
         .setCheck("Number")
@@ -114,7 +114,7 @@ Blockly.Blocks['display_ellipse'] = {
         .appendField("y");
     this.appendValueInput("ep_fill")
         .setCheck("Boolean")
-        .appendField("fill the ellipse");
+        .appendField(MSG.block.displayEllipseFill);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(colorsInt.Display);
@@ -127,7 +127,7 @@ Blockly.Blocks['display_ellipse'] = {
 Blockly.Blocks['display_point'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("draw point");
+        .appendField(MSG.block.displayPoint);
     this.appendValueInput("point_x")
         .setCheck("Number")
         .appendField("x");
