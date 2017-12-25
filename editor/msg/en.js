@@ -65,6 +65,9 @@ var MSG = {
         displayText: "show text",
         row: "in row",
         col: "in column",
+        wait: "wait",
+        waitUntil: "wait until",
+        ms: "ms"
     },
   httpRequestError: "There was a problem with the request.",
   linkAlert: "Share your blocks with this link:\n\n%1",

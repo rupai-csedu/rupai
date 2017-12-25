@@ -42,9 +42,9 @@ Blockly.Blocks['control_wait'] = {
   init: function() {
     this.appendValueInput("wait")
         .setCheck(null)
-        .appendField("wait");
+        .appendField(MSG.block.wait);
     this.appendDummyInput()
-        .appendField("ms");
+        .appendField(MSG.block.ms);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -61,7 +61,7 @@ Blockly.Blocks['control_wait_until'] = {
   init: function() {
     this.appendValueInput("wait_condition")
         .setCheck("Boolean")
-        .appendField("wait until");
+        .appendField(MSG.block.waitUntil);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
