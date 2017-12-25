@@ -27,10 +27,10 @@ Blockly.Blocks['action_test'] = {
 Blockly.Blocks['action_go'] = {
   init: function() {
 	this.appendDummyInput()
-	.appendField(new Blockly.FieldDropdown([["go forward","forward"], ["go backward","backward"]]), "go_dropdown");
+	.appendField(new Blockly.FieldDropdown([[MSG.block.goForwards,"forward"], [MSG.block.goBackwards,"backward"]]), "go_dropdown");
     this.appendValueInput("go_steps")
         .setCheck("Number")
-        .appendField("steps");
+        .appendField(MSG.block.goSteps);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -43,7 +43,7 @@ Blockly.Blocks['action_go'] = {
 Blockly.Blocks['action_stop'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("stop");
+        .appendField(MSG.block.stop);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(colorsInt.Action);
@@ -55,7 +55,7 @@ Blockly.Blocks['action_stop'] = {
 Blockly.Blocks['action_turn'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["turn left","turn_left"], ["turn right","turn_right"]]), "turn_dropdown");
+        .appendField(new Blockly.FieldDropdown([[MSG.block.turnLeft,"turn_left"], [MSG.block.turnRight,"turn_right"]]), "turn_dropdown");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(colorsInt.Action);
@@ -67,7 +67,7 @@ Blockly.Blocks['action_turn'] = {
 Blockly.Blocks['action_go_simple'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["go forward","forward"], ["go backward","backward"]]), "go_simple_dropdown");
+        .appendField(new Blockly.FieldDropdown([[MSG.block.goForwards,"forward"], [MSG.block.goBackwards,"backward"]]), "go_simple_dropdown");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(colorsInt.Action);

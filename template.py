@@ -324,14 +324,14 @@ def turn_left():
     sleep(0.4)
 
 def stop():
-    #a.analogWrite(speed_left,0)
-    #a.analogWrite(speed_right,0)
+    a.analogWrite(speed_left,0)
+    a.analogWrite(speed_right,0)
 				
-    #a.analogWrite(rot_left_1,0)
-    #a.analogWrite(rot_left_2,0)
+    a.analogWrite(rot_left_1,0)
+    a.analogWrite(rot_left_2,0)
 
-    #a.analogWrite(rot_right_1,0)
-    #a.analogWrite(rot_right_2,0)
+    a.analogWrite(rot_right_1,0)
+    a.analogWrite(rot_right_2,0)
 			
     sleep(1)
 	

@@ -11,10 +11,30 @@ body {
 
 .header {
   background: #f1f1f1;
+  /*
+  background: #ECE9E6;  !* fallback for old browsers *!
+  background: -webkit-linear-gradient(to left, #FFFFFF, #ECE9E6);  !* Chrome 10-25, Safari 5.1-6 *!
+  background: linear-gradient(to left, #FFFFFF, #ECE9E6); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!
+  */
 }
 
 .tabs {
   background: #f1f1f1;
+  /*
+  background: #ECE9E6;  !* fallback for old browsers *!
+  background: -webkit-linear-gradient(to left, #FFFFFF, #ECE9E6);  !* Chrome 10-25, Safari 5.1-6 *!
+  background: linear-gradient(to left, #FFFFFF, #ECE9E6); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!
+  */
+}
+
+.gradientBG {
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.graphBG {
+
 }
 
 
@@ -26,25 +46,60 @@ a {
 
 a:hover {
   color: #ff9500;
+  text-decoration: none;
 }
 
 #title {
-  color: #fff;
-  background-color: #000000;
+  color: black;
+  font-size: 1.2em;
   white-space: nowrap;
   padding: 2px 5px 2px 5px;
   border-radius: 1px;
 }
 
+.nearSide {
+  float: left;
+}
+
 .farSide {
-  text-align: right;
-  font-size: 0.9em;
+  margin-top: 15px;
+  float: right;
+}
+
+.farSide #info {
+  float: left;
+}
+
+.farSide #settings {
+  float: right;
+}
+
+.separatorBtn {
+  font-weight: bold;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-right:1px solid #38546d;
+}
+
+.separatorBtn:hover {
+  color: #ff9500;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1026px) {
-  .farSide {
-    display: none;
+  .farSide #info {
+    //display: none;
   }
+}
+
+.modal-footer a {
+  padding: 5px;
+  color: black;
+}
+
+.modal-footer a:hover {
+  color: #ff9500;
+  text-decoration: none;
 }
 
 html[dir="RTL"] .farSide {
@@ -80,7 +135,7 @@ button:active {
   border: 1px solid #888 !important;
 }
 button:hover {
-  box-shadow: 2px 2px 5px #888;
+  /*box-shadow: 2px 2px 5px #888;*/
 }
 button.disabled:hover>img {
   opacity: 0.6;
@@ -179,7 +234,6 @@ pre.content {
   overflow: scroll;
 }
 #languageMenu {
-  margin-top: 15px;
   margin-right: 15px;
 }
 

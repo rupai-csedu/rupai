@@ -32,7 +32,11 @@ var Code = {};
  * Lookup for names of supported languages.  Keys should be in ISO 639 format.
  */
 Code.LANGUAGE_NAME = {
-  'en': 'English'
+  'en': 'English', 'bn': 'বাংলা'
+};
+
+Code.USERS = {
+  'beg':'Beginner', 'int':'Intermediate', 'adv':'Advanced'
 };
 
 /**
@@ -69,6 +73,16 @@ Code.getLang = function() {
     lang = 'en';
   }
   return lang;
+};
+
+
+Code.getUser = function() {
+  var u = Code.getStringParamFromUrl('user', '');
+  if (Code.USERS[u] === undefined) {
+    // Default to Advanced.
+    u = 'adv';
+  }
+  return u;
 };
 
 /**
@@ -110,19 +124,39 @@ Code.loadBlocks = function(defaultXml) {
   }
 };
 
+
+Code.changeUser = function () {
+  console.log("working :/");
+  var userMenu = document.getElementById('userMenu');
+  var newUser = encodeURIComponent(userMenu.options[userMenu.selectedIndex].value);
+  var search = window.location.search;
+  if (search.length <= 1) {
+    search = '?user=' + newUser;
+  } else if (search.match(/[?&]user=[^&]*/)) {
+    search = search.replace(/([?&]user=)[^&]*/, '$1' + newUser);
+  } else {
+    search = search.replace(/\?/, '?user=' + newUser + '&');
+  }
+  window.location = window.location.protocol + '//' + window.location.host + window.location.pathname + search;
+};
+
+
+
 /**
  * Save the blocks and reload with a different language.
  */
 Code.changeLanguage = function() {
+
   // Store the blocks for the duration of the reload.
   // This should be skipped for the index page, which has no blocks and does
   // not load Blockly.
   // MSIE 11 does not support sessionStorage on file:// URLs.
-  if (typeof Blockly != 'undefined' && window.sessionStorage) {
+
+  /* if (typeof Blockly != 'undefined' && window.sessionStorage) {
     var xml = Blockly.Xml.workspaceToDom(Code.workspace);
     var text = Blockly.Xml.domToText(xml);
     window.sessionStorage.loadOnceBlocks = text;
-  }
+  } */
 
   var languageMenu = document.getElementById('languageMenu');
   var newLang = encodeURIComponent(
@@ -199,6 +233,8 @@ Code.getBBox_ = function(element) {
  */
 Code.LANG = Code.getLang();
 
+Code.USER = Code.getUser();
+
 /**
  * List of tab names.
  * @private
@@ -261,6 +297,7 @@ Code.renderContent = function() {
  * Initialize Blockly.  Called on page load.
  */
 Code.init = function() {
+  // lang
   Code.initLanguage();
 
   var rtl = Code.isRtl();
@@ -362,8 +399,11 @@ Code.init = function() {
     //console.log(json);
 
     if (primaryEvent.type == Blockly.Events.UI) {
-      if(primaryEvent.element=='category')
+      if(primaryEvent.element=='category'){
+        //console.log(primaryEvent);
         document.getElementsByClassName('blocklyFlyoutBackground')[0].style.fill = colorsInt[primaryEvent.newValue];
+
+      }
     }
   });
 
@@ -381,14 +421,46 @@ Code.init = function() {
     reader.readAsText(input.files[0]);
   };
 
-  // load main
-  var xmlMain = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="start" id="7EvFF1-8pCJ,zxF,w].K" deletable="false" x="363" y="63"></block></xml>');
-  Blockly.Xml.domToWorkspace(xmlMain, Code.workspace);
+  Code.loadMain();
 
 
   // Lazy-load the syntax-highlighting.
   window.setTimeout(Code.importPrettify, 1);
 };
+
+
+Code.loadMain = function () {
+  // load main
+  var xmlMain = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="start" id="7EvFF1-8pCJ,zxF,w].K" deletable="false" x="363" y="63"></block></xml>');
+  Blockly.Xml.domToWorkspace(xmlMain, Code.workspace);
+};
+
+
+Code.initUserMode = function () {
+  console.log(Code.USER);
+  var userMenu = document.getElementById('userMenu');
+  var users = [];
+  for (var usr in Code.USERS) {
+    users.push([Code.USERS[usr], usr]);
+  }
+  userMenu.options.length = 0;
+  for (var i = 0; i < users.length; i++) {
+    var tuple = users[i];
+    var u = tuple[tuple.length - 1];
+    var option = new Option(tuple[0], u);
+    //console.log(u);
+    if (u == Code.USER) {
+      option.selected = true;
+      console.log(option);
+    }
+    userMenu.options.add(option);
+  }
+
+  console.log(userMenu);
+
+  userMenu.addEventListener('change', Code.changeUser, true);
+};
+
 
 /**
  * Initialize the page language.
@@ -420,17 +492,30 @@ Code.initLanguage = function() {
     var option = new Option(tuple[0], lang);
     if (lang == Code.LANG) {
       option.selected = true;
+      console.log(option);
     }
     languageMenu.options.add(option);
   }
+  console.log(languageMenu);
   languageMenu.addEventListener('change', Code.changeLanguage, true);
 
   // Inject language strings.
+
+  // title
   document.title = MSG['title'];
-  // document.getElementById('title').textContent = MSG['title'];
-  document.getElementById('tab_blocks').textContent = MSG['blocks'];
+  document.getElementById('title').textContent = MSG['title'];
 
+  // tabs
+  document.getElementById('tab_blocks').textContent = MSG['tab_blocks'];
+  document.getElementById('tab_code').textContent = MSG['tab_code'];
+  document.getElementById('tab_camera').textContent = MSG['tab_camera'];
 
+  //menus
+  document.getElementById('aboutBtn').innerHTML = MSG['aboutBtn'];
+  document.getElementById('exampleBtn').innerHTML = MSG['exampleBtn'];
+  document.getElementById('helpBtn').innerHTML = MSG['helpBtn'];
+
+  //tooltips
   document.getElementById('openButton').title = MSG['openTooltip'];
   document.getElementById('saveButton').title = MSG['saveTooltip'];
   document.getElementById('linkButton').title = MSG['linkTooltip'];
@@ -501,9 +586,9 @@ Code.discard = function() {
   if (count < 2 ||
       window.confirm(Blockly.Msg.DELETE_ALL_BLOCKS.replace('%1', count))) {
     Code.workspace.clear();
-    // load main
-    var xmlMain = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml"><block type="start" id="7EvFF1-8pCJ,zxF,w].K" deletable="false" x="363" y="63"></block></xml>');
-    Blockly.Xml.domToWorkspace(xmlMain, Code.workspace);
+
+    Code.loadMain();
+
     if (window.location.hash) {
       window.location.hash = '';
     }
@@ -515,4 +600,36 @@ document.write('<script src="msg/' + Code.LANG + '.js"></script>\n');
 // Load Blockly's language strings.
 document.write('<script src="blockly/msg/js/' + Code.LANG + '.js"></script>\n');
 
-window.addEventListener('load', Code.init);
+
+function loadBlocks() {
+  // user
+  Code.initUserMode();
+
+  // push blocks
+  var xml;
+  if (window.ActiveXObject) {
+    xml = new ActiveXObject("Microsoft.XMLHTTP");
+  } else {
+    xml = new XMLHttpRequest();
+  }
+  xml.onreadystatechange = function() {
+    if (xml.readyState == 4 && xml.status == 200) {
+      var resp = xml.responseText;
+      //console.log(resp);
+
+      var x = document.createElement('xml');
+      x.setAttribute('id', 'toolbox');
+      x.setAttribute('style', 'display: none');
+      x.innerHTML = resp;
+
+      document.body.appendChild(x);
+      Code.init();
+    }
+  };
+  xml.open("GET", "user_"+Code.USER+".txt", true);
+  xml.send(null);
+}
+
+window.addEventListener('load', loadBlocks);
+
+

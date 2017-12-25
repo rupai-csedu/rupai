@@ -1,0 +1,85 @@
+    <category name="{catAction}" colour="#D96C00" expanded="true">
+        <block type="action_go">
+            <value name="go_steps">
+                <shadow type="math_number">
+                    <field name="NUM">5</field>
+                </shadow>
+            </value>
+        </block>
+
+        <block type="action_go_simple"></block>
+        <block type="action_stop"></block>
+        <block type="action_turn"></block>
+    </category>
+
+    <category name="{catControl}" colour="#5BA45B" >
+        <block type="controls_repeat_ext">
+            <value name="TIMES">
+                <block type="math_number">
+                    <field name="NUM">10</field>
+                </block>
+            </value>
+        </block>
+        <block type="control_wait"></block>
+
+        <block type="controls_flow_statements"></block>
+    </category>
+
+    <category name="{catLogic}" colour="#5A7FA4">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+    </category>
+
+    <category name="{catMath}" colour="230">
+        <block type="math_number"></block>
+        <block type="math_arithmetic">
+            <value name="A">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="B">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+
+
+    <category name="{catSensors}" colour="#A1A128">
+        <block type="sensor_is_obstacle"></block>
+        <block type="sensor_on_track"></block>
+    </category>
+
+    <category name="{catDisplay}" colour="#777777">
+
+        <block type="display_clear">
+        </block>
+
+        <block type="show_text">
+
+            <value name="show_text_input">
+                <block type="text">
+                    <field name="TEXT">hello</field>
+                </block>
+            </value>
+
+            <value name="show_text_column">
+                <block type="math_number">
+                    <field name="NUM">0</field>
+                </block>
+            </value>
+
+            <value name="show_text_row">
+                <block type="math_number">
+                    <field name="NUM">0</field>
+                </block>
+            </value>
+
+        </block>
+
+    </category>

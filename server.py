@@ -7,6 +7,7 @@ import shutil
 import cgi, cgitb 
 import importlib
 import sys
+import re
 
 PORT_NUMBER = 9980
 
@@ -17,7 +18,7 @@ class myHandler(BaseHTTPRequestHandler):
 	    
 	#Handler for the GET requests
 	def do_GET(self):
-		if self.path=="/":
+		if re.match( r'^/((?!\.).)*$', self.path, re.M|re.I):
 			self.path="/index.html"
 
 		try:
@@ -28,6 +29,9 @@ class myHandler(BaseHTTPRequestHandler):
 			if self.path.endswith(".html"):
 				mimetype='text/html'
 				sendReply = True
+			if self.path.endswith(".txt"):
+			    mimetype='text/plain'
+			    sendReply = True
 			if self.path.endswith(".jpg"):
 				mimetype='image/jpg'
 				sendReply = True
@@ -48,7 +52,19 @@ class myHandler(BaseHTTPRequestHandler):
 				print("***********svg request received*******")
 				mimetype='image/svg+xml'
 				sendReply = True
-			
+			if self.path.endswith(".mp3"):
+			    mimetype='audio/mpeg'
+			    sendReply = True
+			if self.path.endswith(".ico"):
+			    mimetype='image/x-icon'
+			    sendReply = True
+			if self.path.endswith(".wav"):
+			    mimetype='audio/wav'
+			    sendReply = True
+			if self.path.endswith(".cur"):
+			    mimetype='application/octet-stream'
+			    sendReply = True
+
 
 			if sendReply == True:
 				#Open the static file requested and send it
