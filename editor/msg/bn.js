@@ -47,7 +47,7 @@ var MSG = {
         eventCentre: "যখন মদ্ধে",
         white: "সাদা",
         black: "কাল",
-        sensorDistance: "সেন্সর থেকে দুরুত্ত নাও",
+        sensorDistance: "সেন্সর থেকে দূরত্ব নাও",
         sensorObstacle:"বাধা সনাক্ত",
         sensorTrack: "সঠিক পথে",
         sensorLeft: "বামে সাদা",
