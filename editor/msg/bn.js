@@ -67,7 +67,9 @@ var MSG = {
         col: "কলাম",
         wait: "অপেক্ষা করো",
         waitUntil: "অপেক্ষা করো যতক্ষণ না",
-        ms: "মিলি সেকেন্ড"
+        ms: "মিলি সেকেন্ড",
+        Task: "কাজ",
+        thread: "একই সাথে করো"
     },
 
   httpRequestError: "There was a problem with the request.",

@@ -67,7 +67,9 @@ var MSG = {
         col: "in column",
         wait: "wait",
         waitUntil: "wait until",
-        ms: "ms"
+        ms: "ms",
+        Task: "Task",
+        thread: "execute in parallel"
     },
   httpRequestError: "There was a problem with the request.",
   linkAlert: "Share your blocks with this link:\n\n%1",
