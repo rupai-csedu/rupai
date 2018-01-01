@@ -44,10 +44,10 @@ var MSG = {
         eventVoice: "যখন ভয়েস ইনপুট",
         eventLeft: "যখন বাম",
         eventRight: "যখন ডান",
-        eventCentre: "যখন মদ্ধে",
+        eventCentre: "যখন মাঝে",
         white: "সাদা",
         black: "কাল",
-        sensorDistance: "সেন্সর থেকে দুরুত্ত নাও",
+        sensorDistance: "সেন্সর থেকে দূরত্ব নাও",
         sensorObstacle:"বাধা সনাক্ত",
         sensorTrack: "সঠিক পথে",
         sensorLeft: "বামে সাদা",
@@ -64,7 +64,12 @@ var MSG = {
         displayClear: "সব মুছে ফেলো",
         displayText: "লেখা দেখাও",
         row: "সারি",
-        col: "কলাম"
+        col: "কলাম",
+        wait: "অপেক্ষা করো",
+        waitUntil: "অপেক্ষা করো যতক্ষণ না",
+        ms: "মিলি সেকেন্ড",
+        Task: "কাজ",
+        thread: "একই সাথে করো"
     },
 
   httpRequestError: "There was a problem with the request.",
