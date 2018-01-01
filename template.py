@@ -506,6 +506,8 @@ def check_voice_stop():
 def voice_stop():
     print("dummy function called")
 
+def event_obstacle():
+    print("dummy function called")
 
 
 def event_check_loop():
@@ -539,6 +541,9 @@ def event_check_loop():
             elif event == 'voice_stop' and check_voice_stop():
                 print("voice stop dectected")
                 voice_stop()
+            elif event == 'event_obstacle' and obstacleDetected():
+                print("obstacle dectected")
+                event_obstacle()
 
 def add_event(type):
     events.append(type)

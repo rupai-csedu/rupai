@@ -69,7 +69,8 @@ var MSG = {
         waitUntil: "অপেক্ষা করো যতক্ষণ না",
         ms: "মিলি সেকেন্ড",
         Task: "কাজ",
-        thread: "একই সাথে করো"
+        thread: "একই সাথে করো",
+        eventObstacle: "যখন সামনে বাধা পাবে"
     },
 
   httpRequestError: "There was a problem with the request.",

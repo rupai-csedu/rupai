@@ -43,3 +43,15 @@ Blockly.Python['event_light_centre'] = function(block) {
   var code = 'def '+dropdown+'('+'):'+'\n'+branch+'\n'+listener;
   return code;
 };
+
+
+Blockly.Python['event_obstacle'] = function(block) {
+
+  var branch = Blockly.Python.statementToCode(block, 'obstacle_statements');
+
+  branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+
+  var listener= 'add_event(\"'+'event_obstacle'+'\")'+'\n';
+  var code = 'def '+'event_obstacle'+'('+'):'+'\n'+branch+'\n'+listener;
+  return code;
+};

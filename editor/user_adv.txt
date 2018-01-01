@@ -305,11 +305,11 @@
     </category>
 
     <category name="{catEvents}" colour="#287AA1">
-        <block type="event_voice"></block>
+        <block type="event_obstacle"></block>
         <block type="event_light_left"></block>
         <block type="event_light_right"></block>
         <block type="event_light_centre"></block>
-
+        <block type="event_voice"></block>
     </category>
 
     <category name="{catDisplay}" colour="#777777">

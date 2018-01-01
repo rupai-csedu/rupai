@@ -59,3 +59,17 @@ Blockly.Blocks['event_light_centre'] = {
     this.setHelpUrl('');
   }
 };
+
+Blockly.Blocks['event_obstacle'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(MSG.block.eventObstacle);
+      this.appendStatementInput("obstacle_statements")
+        .setCheck(null);
+    //this.setPreviousStatement(true, null);
+    //this.setNextStatement(true, null);
+    this.setColour(colorsInt.Events);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};

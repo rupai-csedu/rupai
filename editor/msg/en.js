@@ -69,7 +69,8 @@ var MSG = {
         waitUntil: "wait until",
         ms: "ms",
         Task: "Task",
-        thread: "execute in parallel"
+        thread: "execute in parallel",
+        eventObstacle: "When obstacle detected"
     },
   httpRequestError: "There was a problem with the request.",
   linkAlert: "Share your blocks with this link:\n\n%1",
