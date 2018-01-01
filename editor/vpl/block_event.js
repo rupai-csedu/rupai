@@ -49,7 +49,7 @@ Blockly.Blocks['event_light_centre'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(MSG.block.eventCentre)
-        .appendField(new Blockly.FieldDropdown([[MSG.block.white,"light_centre_white"], [MSG.block.white,"light_centre_black"]]), "light_centre_dropdown");
+        .appendField(new Blockly.FieldDropdown([[MSG.block.white,"light_centre_white"], [MSG.block.black,"light_centre_black"]]), "light_centre_dropdown");
     this.appendStatementInput("light_centre_statements")
         .setCheck(null);
     //this.setPreviousStatement(true, null);

@@ -31,16 +31,16 @@ rot_right_2= 9
 rot_left_1= 12  
 rot_left_2= 2
 
-trigpin=13
+trigpin=7
 echopin=3
 
-SS2_LEFT_IN=7
+SS2_LEFT_IN=13
 SS3_CENTER=4
 CLP_BUMP=5
 SS4_RIGHT_IN=6
 
 speed_left_value=236
-speed_right_value=173
+speed_right_value=200
 rot_left_value=150
 rot_right_value=255
 
@@ -88,6 +88,37 @@ config.set_string('-logfn', '/dev/null')
 p = pyaudio.PyAudio()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
 
+def detect_voice_temp():
+    global buf
+    stream.start_stream()
+
+    temp_buf= stream.read(1024)
+
+    if temp_buf:
+        buf.append(temp_buf)
+
+    if len(buf)>35:
+        del buf[0]
+
+    stream.stop_stream()
+
+    # Decode streaming data.
+    decoder = Decoder(config)
+    decoder.start_utt()
+
+    for i in range(0, len(buf)):
+        decoder.process_raw(buf, False, False)
+
+    decoder.end_utt()
+
+    hypothesis = decoder.hyp()
+
+    if hypothesis == None:
+        return ""
+    else:
+        print('Best hypothesis: ', hypothesis.hypstr)
+        return hypothesis.hypstr
+
 
 def detect_voice():
 
@@ -105,13 +136,13 @@ def detect_voice():
     decoder.end_utt()
     stream.stop_stream()
     hypothesis = decoder.hyp()
-    logmath = decoder.get_logmath()
 
     if hypothesis == None:
         return ""
     else:
         print('Best hypothesis: ', hypothesis.hypstr)
         return hypothesis.hypstr
+
 
 
 
@@ -147,8 +178,10 @@ def leftIsWhite():
 def rightIsWhite():
     RightIn  = a.digitalRead(SS4_RIGHT_IN)
     if (RightIn == 1):
+        print("yaah! right is white")
         return True
     else:
+        print("yaah! right is black")
         return False
 
 def centreIsWhite():
@@ -291,14 +324,14 @@ def turn_left():
     sleep(0.4)
 
 def stop():
-    #a.analogWrite(speed_left,0)
-    #a.analogWrite(speed_right,0)
+    a.analogWrite(speed_left,0)
+    a.analogWrite(speed_right,0)
 				
-    #a.analogWrite(rot_left_1,0)
-    #a.analogWrite(rot_left_2,0)
+    a.analogWrite(rot_left_1,0)
+    a.analogWrite(rot_left_2,0)
 
-    #a.analogWrite(rot_right_1,0)
-    #a.analogWrite(rot_right_2,0)
+    a.analogWrite(rot_right_1,0)
+    a.analogWrite(rot_right_2,0)
 			
     sleep(1)
 	
@@ -415,14 +448,14 @@ def light_left_white():
 
 
 def check_light_right_white():
-    return leftIsWhite()
+    return rightIsWhite()
 
 def light_right_white():
     print("dummy function called")
 
 
 def check_light_centre_white():
-    return leftIsWhite()
+    return centreIsWhite()
 
 def light_centre_white():
     print("dummy function called")
@@ -437,14 +470,14 @@ def light_left_black():
 
 
 def check_light_right_black():
-    return not leftIsWhite()
+    return not rightIsWhite()
 
 def light_right_black():
     print("dummy function called")
 
 
 def check_light_centre_black():
-    return not leftIsWhite()
+    return not centreIsWhite()
 
 def light_centre_black():
     print("dummy function called")
@@ -517,15 +550,14 @@ except:
     print("Error: unable to start thread")
 
 
-
-def voice_go():
-  pass
-
-add_event("voice_go")
+pass
 
 
 
-while True:
-  pass
+for count in range(100):
+  if obstacleDetected():
+    text('hello',0,0)
+  else:
+    clear()
 
 stop()

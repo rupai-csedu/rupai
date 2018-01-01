@@ -1,7 +1,7 @@
     <category name="{catAction}" colour="#D96C00" expanded="true">
 
 
-        <!--<block type="action_test"></block>-->
+        <block type="action_test"></block>
 
         <block type="action_go">
 

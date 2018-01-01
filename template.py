@@ -31,16 +31,16 @@ rot_right_2= 9
 rot_left_1= 12  
 rot_left_2= 2
 
-trigpin=13
+trigpin=7
 echopin=3
 
-SS2_LEFT_IN=7
+SS2_LEFT_IN=13
 SS3_CENTER=4
 CLP_BUMP=5
 SS4_RIGHT_IN=6
 
 speed_left_value=236
-speed_right_value=173
+speed_right_value=200
 rot_left_value=150
 rot_right_value=255
 
@@ -87,8 +87,6 @@ config.set_string('-logfn', '/dev/null')
 
 p = pyaudio.PyAudio()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
-
-#buf= []
 
 def detect_voice_temp():
     global buf
@@ -180,8 +178,10 @@ def leftIsWhite():
 def rightIsWhite():
     RightIn  = a.digitalRead(SS4_RIGHT_IN)
     if (RightIn == 1):
+        print("yaah! right is white")
         return True
     else:
+        print("yaah! right is black")
         return False
 
 def centreIsWhite():
@@ -448,14 +448,14 @@ def light_left_white():
 
 
 def check_light_right_white():
-    return leftIsWhite()
+    return rightIsWhite()
 
 def light_right_white():
     print("dummy function called")
 
 
 def check_light_centre_white():
-    return leftIsWhite()
+    return centreIsWhite()
 
 def light_centre_white():
     print("dummy function called")
@@ -470,14 +470,14 @@ def light_left_black():
 
 
 def check_light_right_black():
-    return not leftIsWhite()
+    return not rightIsWhite()
 
 def light_right_black():
     print("dummy function called")
 
 
 def check_light_centre_black():
-    return not leftIsWhite()
+    return not centreIsWhite()
 
 def light_centre_black():
     print("dummy function called")
@@ -512,7 +512,6 @@ def event_check_loop():
     while True:
         #print('checking event')
         sleep(.1)
-        global buf
         for event in events:
             #print('checking event in list')
             #sleep(0.1)
@@ -532,15 +531,12 @@ def event_check_loop():
                 print("voice go dectected")
                 voice_go()
             elif event == 'voice_left' and check_voice_left():
-                #del buf[:]
                 print("voice left dectected")
                 voice_left()
             elif event == 'voice_right' and check_voice_right():
-                #del buf[:]
                 print("voice right dectected")
                 voice_right()
             elif event == 'voice_stop' and check_voice_stop():
-                #del buf[:]
                 print("voice stop dectected")
                 voice_stop()
 
