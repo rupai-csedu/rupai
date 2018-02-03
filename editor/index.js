@@ -538,14 +538,14 @@ Code.runJS = function() {
 
 
     var allXml = Blockly.Xml.workspaceToDom(Code.workspace);
-    console.log(allXml);
+    console.log(new XMLSerializer().serializeToString(allXml));
 
     var mainCode="", eventListeners="";
 
     var xml;
     while(xml = allXml.childNodes.item(0)) {
 
-      console.log("found: "+ xml);
+      console.log("found: "+ new XMLSerializer().serializeToString(xml));
 
       var blockDom = goog.dom.createDom('xml');
       blockDom.appendChild(xml);
